@@ -36,7 +36,11 @@ function enhancePicker(select) {
   panel.setAttribute('role','dialog');
   panel.innerHTML = '<div class="picker-heading"></div><div class="picker-search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input type="search" autocomplete="off" spellcheck="false"></div><div class="picker-options"></div>';
   const search = panel.querySelector('input');
+  search.autofocus = true;
   const options = panel.querySelector('.picker-options');
+  // Associate the invoker so light-dismiss does not close the panel before
+  // the same button's activation toggles it, accidentally reopening it.
+  trigger.setAttribute('popovertarget',panel.id);
   trigger.setAttribute('aria-haspopup','dialog');
   trigger.setAttribute('aria-controls',panel.id);
   trigger.setAttribute('aria-expanded','false');
@@ -79,13 +83,11 @@ function enhancePicker(select) {
     panel.style.top = opensAbove ? 'auto' : `${rect.bottom + 10}px`;
     panel.style.bottom = opensAbove ? `${innerHeight - rect.top + 10}px` : 'auto';
   }
-  trigger.addEventListener('click',() => {
-    if (panel.matches(':popover-open')) { panel.hidePopover(); return; }
+  panel.addEventListener('beforetoggle',event => {
+    if (event.newState !== 'open') return;
     search.value = '';
     renderOptions();
     position();
-    panel.showPopover();
-    search.focus({preventScroll:true});
   });
   panel.addEventListener('toggle',event => trigger.setAttribute('aria-expanded',String(event.newState === 'open')));
   search.addEventListener('input',renderOptions);
