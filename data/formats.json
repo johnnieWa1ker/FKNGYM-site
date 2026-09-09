@@ -1,0 +1,408 @@
+{
+  "ar": {
+    "markets": {
+      "USA": "الولايات المتحدة"
+    },
+    "prices": {
+      "USD:1.99": "‏1.99 US$",
+      "USD:12.99": "‏12.99 US$"
+    },
+    "periods": {
+      "month:1": "شهر",
+      "year:1": "سنة",
+      "day:3": "3 أيام"
+    }
+  },
+  "cs": {
+    "markets": {
+      "USA": "Spojené státy"
+    },
+    "prices": {
+      "USD:1.99": "1,99 US$",
+      "USD:12.99": "12,99 US$"
+    },
+    "periods": {
+      "month:1": "1 měsíc",
+      "year:1": "1 rok",
+      "day:3": "3 dny"
+    }
+  },
+  "da": {
+    "markets": {
+      "USA": "USA"
+    },
+    "prices": {
+      "USD:1.99": "1,99 US$",
+      "USD:12.99": "12,99 US$"
+    },
+    "periods": {
+      "month:1": "1 måned",
+      "year:1": "1 år",
+      "day:3": "3 dage"
+    }
+  },
+  "de": {
+    "markets": {
+      "USA": "Vereinigte Staaten"
+    },
+    "prices": {
+      "USD:1.99": "1,99 $",
+      "USD:12.99": "12,99 $"
+    },
+    "periods": {
+      "month:1": "1 Monat",
+      "year:1": "1 Jahr",
+      "day:3": "3 Tage"
+    }
+  },
+  "el": {
+    "markets": {
+      "USA": "Ηνωμένες Πολιτείες"
+    },
+    "prices": {
+      "USD:1.99": "1,99 $",
+      "USD:12.99": "12,99 $"
+    },
+    "periods": {
+      "month:1": "1 μήνας",
+      "year:1": "1 έτος",
+      "day:3": "3 ημέρες"
+    }
+  },
+  "en": {
+    "markets": {
+      "USA": "United States"
+    },
+    "prices": {
+      "USD:1.99": "$1.99",
+      "USD:12.99": "$12.99"
+    },
+    "periods": {
+      "month:1": "1 month",
+      "year:1": "1 year",
+      "day:3": "3 days"
+    }
+  },
+  "es": {
+    "markets": {
+      "USA": "Estados Unidos"
+    },
+    "prices": {
+      "USD:1.99": "1,99 US$",
+      "USD:12.99": "12,99 US$"
+    },
+    "periods": {
+      "month:1": "1 mes",
+      "year:1": "1 año",
+      "day:3": "3 días"
+    }
+  },
+  "fi": {
+    "markets": {
+      "USA": "Yhdysvallat"
+    },
+    "prices": {
+      "USD:1.99": "1,99 $",
+      "USD:12.99": "12,99 $"
+    },
+    "periods": {
+      "month:1": "1 kuukausi",
+      "year:1": "1 vuosi",
+      "day:3": "3 päivää"
+    }
+  },
+  "fr": {
+    "markets": {
+      "USA": "États-Unis"
+    },
+    "prices": {
+      "USD:1.99": "1,99 $US",
+      "USD:12.99": "12,99 $US"
+    },
+    "periods": {
+      "month:1": "1 mois",
+      "year:1": "1 an",
+      "day:3": "3 jours"
+    }
+  },
+  "he": {
+    "markets": {
+      "USA": "ארצות הברית"
+    },
+    "prices": {
+      "USD:1.99": "‏1.99 ‏$",
+      "USD:12.99": "‏12.99 ‏$"
+    },
+    "periods": {
+      "month:1": "1 חודש",
+      "year:1": "1 שנה",
+      "day:3": "3 ימים"
+    }
+  },
+  "hi": {
+    "markets": {
+      "USA": "संयुक्त राज्य"
+    },
+    "prices": {
+      "USD:1.99": "$1.99",
+      "USD:12.99": "$12.99"
+    },
+    "periods": {
+      "month:1": "1 महीना",
+      "year:1": "1 वर्ष",
+      "day:3": "3 दिन"
+    }
+  },
+  "hu": {
+    "markets": {
+      "USA": "Egyesült Államok"
+    },
+    "prices": {
+      "USD:1.99": "1,99 USD",
+      "USD:12.99": "12,99 USD"
+    },
+    "periods": {
+      "month:1": "1 hónap",
+      "year:1": "1 év",
+      "day:3": "3 nap"
+    }
+  },
+  "id": {
+    "markets": {
+      "USA": "Amerika Serikat"
+    },
+    "prices": {
+      "USD:1.99": "US$1,99",
+      "USD:12.99": "US$12,99"
+    },
+    "periods": {
+      "month:1": "1 bulan",
+      "year:1": "1 tahun",
+      "day:3": "3 hari"
+    }
+  },
+  "it": {
+    "markets": {
+      "USA": "Stati Uniti"
+    },
+    "prices": {
+      "USD:1.99": "1,99 USD",
+      "USD:12.99": "12,99 USD"
+    },
+    "periods": {
+      "month:1": "1 mese",
+      "year:1": "1 anno",
+      "day:3": "3 giorni"
+    }
+  },
+  "ja": {
+    "markets": {
+      "USA": "アメリカ合衆国"
+    },
+    "prices": {
+      "USD:1.99": "$1.99",
+      "USD:12.99": "$12.99"
+    },
+    "periods": {
+      "month:1": "1 か月",
+      "year:1": "1 年",
+      "day:3": "3 日"
+    }
+  },
+  "ka": {
+    "markets": {
+      "USA": "ამერიკის შეერთებული შტატები"
+    },
+    "prices": {
+      "USD:1.99": "1,99 US$",
+      "USD:12.99": "12,99 US$"
+    },
+    "periods": {
+      "month:1": "1 თვე",
+      "year:1": "1 წელი",
+      "day:3": "3 დღე"
+    }
+  },
+  "ko": {
+    "markets": {
+      "USA": "미국"
+    },
+    "prices": {
+      "USD:1.99": "US$1.99",
+      "USD:12.99": "US$12.99"
+    },
+    "periods": {
+      "month:1": "1개월",
+      "year:1": "1년",
+      "day:3": "3일"
+    }
+  },
+  "nl": {
+    "markets": {
+      "USA": "Verenigde Staten"
+    },
+    "prices": {
+      "USD:1.99": "US$ 1,99",
+      "USD:12.99": "US$ 12,99"
+    },
+    "periods": {
+      "month:1": "1 maand",
+      "year:1": "1 jaar",
+      "day:3": "3 dagen"
+    }
+  },
+  "pl": {
+    "markets": {
+      "USA": "Stany Zjednoczone"
+    },
+    "prices": {
+      "USD:1.99": "1,99 USD",
+      "USD:12.99": "12,99 USD"
+    },
+    "periods": {
+      "month:1": "1 miesiąc",
+      "year:1": "1 rok",
+      "day:3": "3 dni"
+    }
+  },
+  "pt-BR": {
+    "markets": {
+      "USA": "Estados Unidos"
+    },
+    "prices": {
+      "USD:1.99": "US$ 1,99",
+      "USD:12.99": "US$ 12,99"
+    },
+    "periods": {
+      "month:1": "1 mês",
+      "year:1": "1 ano",
+      "day:3": "3 dias"
+    }
+  },
+  "ro": {
+    "markets": {
+      "USA": "Statele Unite ale Americii"
+    },
+    "prices": {
+      "USD:1.99": "1,99 USD",
+      "USD:12.99": "12,99 USD"
+    },
+    "periods": {
+      "month:1": "1 lună",
+      "year:1": "1 an",
+      "day:3": "3 zile"
+    }
+  },
+  "ru": {
+    "markets": {
+      "USA": "Соединенные Штаты"
+    },
+    "prices": {
+      "USD:1.99": "1,99 $",
+      "USD:12.99": "12,99 $"
+    },
+    "periods": {
+      "month:1": "1 месяц",
+      "year:1": "1 год",
+      "day:3": "3 дня"
+    }
+  },
+  "sv": {
+    "markets": {
+      "USA": "USA"
+    },
+    "prices": {
+      "USD:1.99": "1,99 US$",
+      "USD:12.99": "12,99 US$"
+    },
+    "periods": {
+      "month:1": "1 månad",
+      "year:1": "1 år",
+      "day:3": "3 dygn"
+    }
+  },
+  "th": {
+    "markets": {
+      "USA": "สหรัฐอเมริกา"
+    },
+    "prices": {
+      "USD:1.99": "US$1.99",
+      "USD:12.99": "US$12.99"
+    },
+    "periods": {
+      "month:1": "1 เดือน",
+      "year:1": "1 ปี",
+      "day:3": "3 วัน"
+    }
+  },
+  "tr": {
+    "markets": {
+      "USA": "Amerika Birleşik Devletleri"
+    },
+    "prices": {
+      "USD:1.99": "$1,99",
+      "USD:12.99": "$12,99"
+    },
+    "periods": {
+      "month:1": "1 ay",
+      "year:1": "1 yıl",
+      "day:3": "3 gün"
+    }
+  },
+  "uk": {
+    "markets": {
+      "USA": "Сполучені Штати"
+    },
+    "prices": {
+      "USD:1.99": "1,99 USD",
+      "USD:12.99": "12,99 USD"
+    },
+    "periods": {
+      "month:1": "1 місяць",
+      "year:1": "1 рік",
+      "day:3": "3 дні"
+    }
+  },
+  "vi": {
+    "markets": {
+      "USA": "Hoa Kỳ"
+    },
+    "prices": {
+      "USD:1.99": "1,99 US$",
+      "USD:12.99": "12,99 US$"
+    },
+    "periods": {
+      "month:1": "1 tháng",
+      "year:1": "1 năm",
+      "day:3": "3 ngày"
+    }
+  },
+  "zh-Hans": {
+    "markets": {
+      "USA": "美国"
+    },
+    "prices": {
+      "USD:1.99": "US$1.99",
+      "USD:12.99": "US$12.99"
+    },
+    "periods": {
+      "month:1": "1个月",
+      "year:1": "1年",
+      "day:3": "3天"
+    }
+  },
+  "zh-Hant": {
+    "markets": {
+      "USA": "美國"
+    },
+    "prices": {
+      "USD:1.99": "US$1.99",
+      "USD:12.99": "US$12.99"
+    },
+    "periods": {
+      "month:1": "1 個月",
+      "year:1": "1 年",
+      "day:3": "3 天"
+    }
+  }
+}

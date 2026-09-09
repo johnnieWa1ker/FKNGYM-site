@@ -1,0 +1,358 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "storefront": "USA",
+    "currency": "USD",
+    "locale": "en-US",
+    "pricesSHA256": "784fe1c3fe7b14e1f1ecd5a82ef7802af30521c2ab6ab572e9af75ccda6ee862",
+    "localizationsSHA256": "7a765da16264cef0c56d29678527cf818510f467251d06810747a8a3efa4dc2b"
+  },
+  "locales": [
+    "ar",
+    "cs",
+    "da",
+    "de",
+    "el",
+    "en",
+    "es",
+    "fi",
+    "fr",
+    "he",
+    "hi",
+    "hu",
+    "id",
+    "it",
+    "ja",
+    "ka",
+    "ko",
+    "nl",
+    "pl",
+    "pt-BR",
+    "ro",
+    "ru",
+    "sv",
+    "th",
+    "tr",
+    "uk",
+    "vi",
+    "zh-Hans",
+    "zh-Hant"
+  ],
+  "products": {
+    "monthly": {
+      "id": "com.johnnie.fkngym.statistics.premium.monthly",
+      "price": "1.99",
+      "period": {
+        "count": 1,
+        "unit": "month"
+      },
+      "trial": null,
+      "localizations": {
+        "ar": {
+          "name": "شهري",
+          "description": "تاريخ كامل واتجاهات ورؤى تقدم.",
+          "locale": "ar"
+        },
+        "cs": {
+          "name": "Měsíčně",
+          "description": "Historie, trendy a pokrok.",
+          "locale": "cs"
+        },
+        "da": {
+          "name": "Månedlig",
+          "description": "Historik, trends og fremskridt.",
+          "locale": "da"
+        },
+        "de": {
+          "name": "Monatlich",
+          "description": "Verlauf, Trends und Fortschritt.",
+          "locale": "de"
+        },
+        "el": {
+          "name": "Μηνιαία",
+          "description": "Ιστορικό, τάσεις και πρόοδος.",
+          "locale": "el"
+        },
+        "en": {
+          "name": "Monthly",
+          "description": "Full history, trends, and progress insights.",
+          "locale": "en-US"
+        },
+        "es": {
+          "name": "Mensual",
+          "description": "Historial, tendencias y progreso.",
+          "locale": "es-ES"
+        },
+        "fi": {
+          "name": "Kuukausi",
+          "description": "Historia, trendit ja kehitys.",
+          "locale": "fi"
+        },
+        "fr": {
+          "name": "Mensuel",
+          "description": "Historique, tendances et progrès.",
+          "locale": "fr"
+        },
+        "he": {
+          "name": "חודשי",
+          "description": "היסטוריה, מגמות והתקדמות.",
+          "locale": "he"
+        },
+        "hi": {
+          "name": "मासिक",
+          "description": "पूरा इतिहास, रुझान और प्रगति.",
+          "locale": "hi"
+        },
+        "hu": {
+          "name": "Havi",
+          "description": "Előzmények, trendek és fejlődés.",
+          "locale": "hu"
+        },
+        "id": {
+          "name": "Bulanan",
+          "description": "Riwayat, tren, dan progres lengkap.",
+          "locale": "id"
+        },
+        "it": {
+          "name": "Mensile",
+          "description": "Storico, trend e progressi completi.",
+          "locale": "it"
+        },
+        "ja": {
+          "name": "月間",
+          "description": "全履歴、傾向、進捗インサイト。",
+          "locale": "ja"
+        },
+        "ka": {
+          "name": "Monthly",
+          "description": "Full history, trends, and progress insights.",
+          "locale": "en-US"
+        },
+        "ko": {
+          "name": "월간",
+          "description": "전체 기록, 추세, 진행 상황.",
+          "locale": "ko"
+        },
+        "nl": {
+          "name": "Maandelijks",
+          "description": "Historie, trends en voortgang.",
+          "locale": "nl"
+        },
+        "pl": {
+          "name": "Miesięcznie",
+          "description": "Historia, trendy i postępy.",
+          "locale": "pl"
+        },
+        "pt-BR": {
+          "name": "Mensal",
+          "description": "Histórico, tendências e progresso.",
+          "locale": "pt-BR"
+        },
+        "ro": {
+          "name": "Lunar",
+          "description": "Istoric, tendințe și progres.",
+          "locale": "ro"
+        },
+        "ru": {
+          "name": "Ежемесячно",
+          "description": "Вся история, тренды и прогресс.",
+          "locale": "ru"
+        },
+        "sv": {
+          "name": "Månadsvis",
+          "description": "Historik, trender och framsteg.",
+          "locale": "sv"
+        },
+        "th": {
+          "name": "รายเดือน",
+          "description": "ประวัติ เทรนด์ และความคืบหน้า",
+          "locale": "th"
+        },
+        "tr": {
+          "name": "Aylık",
+          "description": "Geçmiş, trendler ve ilerleme.",
+          "locale": "tr"
+        },
+        "uk": {
+          "name": "Місяць",
+          "description": "Уся історія, тренди й прогрес.",
+          "locale": "uk"
+        },
+        "vi": {
+          "name": "Hàng tháng",
+          "description": "Lịch sử, xu hướng và tiến bộ.",
+          "locale": "vi"
+        },
+        "zh-Hans": {
+          "name": "每月",
+          "description": "完整历史、趋势和进展。",
+          "locale": "zh-Hans"
+        },
+        "zh-Hant": {
+          "name": "每月",
+          "description": "完整記錄、趨勢與進展。",
+          "locale": "zh-Hant"
+        }
+      }
+    },
+    "annual": {
+      "id": "com.johnnie.fkngym.statistics.premium.annual",
+      "price": "12.99",
+      "period": {
+        "count": 1,
+        "unit": "year"
+      },
+      "trial": {
+        "count": 3,
+        "unit": "day"
+      },
+      "localizations": {
+        "ar": {
+          "name": "سنوي",
+          "description": "تاريخ كامل واتجاهات ورؤى تقدم.",
+          "locale": "ar"
+        },
+        "cs": {
+          "name": "Ročně",
+          "description": "Historie, trendy a pokrok.",
+          "locale": "cs"
+        },
+        "da": {
+          "name": "Årlig",
+          "description": "Historik, trends og fremskridt.",
+          "locale": "da"
+        },
+        "de": {
+          "name": "Jährlich",
+          "description": "Verlauf, Trends und Fortschritt.",
+          "locale": "de"
+        },
+        "el": {
+          "name": "Ετήσια",
+          "description": "Ιστορικό, τάσεις και πρόοδος.",
+          "locale": "el"
+        },
+        "en": {
+          "name": "Annual",
+          "description": "Full history, trends, and progress insights.",
+          "locale": "en-US"
+        },
+        "es": {
+          "name": "Anual",
+          "description": "Historial, tendencias y progreso.",
+          "locale": "es-ES"
+        },
+        "fi": {
+          "name": "Vuosi",
+          "description": "Historia, trendit ja kehitys.",
+          "locale": "fi"
+        },
+        "fr": {
+          "name": "Annuel",
+          "description": "Historique, tendances et progrès.",
+          "locale": "fr"
+        },
+        "he": {
+          "name": "שנתי",
+          "description": "היסטוריה, מגמות והתקדמות.",
+          "locale": "he"
+        },
+        "hi": {
+          "name": "वार्षिक",
+          "description": "पूरा इतिहास, रुझान और प्रगति.",
+          "locale": "hi"
+        },
+        "hu": {
+          "name": "Éves",
+          "description": "Előzmények, trendek és fejlődés.",
+          "locale": "hu"
+        },
+        "id": {
+          "name": "Tahunan",
+          "description": "Riwayat, tren, dan progres lengkap.",
+          "locale": "id"
+        },
+        "it": {
+          "name": "Annuale",
+          "description": "Storico, trend e progressi completi.",
+          "locale": "it"
+        },
+        "ja": {
+          "name": "年間",
+          "description": "全履歴、傾向、進捗インサイト。",
+          "locale": "ja"
+        },
+        "ka": {
+          "name": "Annual",
+          "description": "Full history, trends, and progress insights.",
+          "locale": "en-US"
+        },
+        "ko": {
+          "name": "연간",
+          "description": "전체 기록, 추세, 진행 상황.",
+          "locale": "ko"
+        },
+        "nl": {
+          "name": "Jaarlijks",
+          "description": "Historie, trends en voortgang.",
+          "locale": "nl"
+        },
+        "pl": {
+          "name": "Rocznie",
+          "description": "Historia, trendy i postępy.",
+          "locale": "pl"
+        },
+        "pt-BR": {
+          "name": "Anual",
+          "description": "Histórico, tendências e progresso.",
+          "locale": "pt-BR"
+        },
+        "ro": {
+          "name": "Anual",
+          "description": "Istoric, tendințe și progres.",
+          "locale": "ro"
+        },
+        "ru": {
+          "name": "Ежегодно",
+          "description": "Вся история, тренды и прогресс.",
+          "locale": "ru"
+        },
+        "sv": {
+          "name": "Årligen",
+          "description": "Historik, trender och framsteg.",
+          "locale": "sv"
+        },
+        "th": {
+          "name": "รายปี",
+          "description": "ประวัติ เทรนด์ และความคืบหน้า",
+          "locale": "th"
+        },
+        "tr": {
+          "name": "Yıllık",
+          "description": "Geçmiş, trendler ve ilerleme.",
+          "locale": "tr"
+        },
+        "uk": {
+          "name": "Рік",
+          "description": "Уся історія, тренди й прогрес.",
+          "locale": "uk"
+        },
+        "vi": {
+          "name": "Hàng năm",
+          "description": "Lịch sử, xu hướng và tiến bộ.",
+          "locale": "vi"
+        },
+        "zh-Hans": {
+          "name": "每年",
+          "description": "完整历史、趋势和进展。",
+          "locale": "zh-Hans"
+        },
+        "zh-Hant": {
+          "name": "每年",
+          "description": "完整記錄、趨勢與進展。",
+          "locale": "zh-Hant"
+        }
+      }
+    }
+  }
+}

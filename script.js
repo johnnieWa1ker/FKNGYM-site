@@ -1,280 +1,252 @@
-const translations = {
-  en: {
-    navFeatures: "Features",
-    navStats: "Stats",
-    navSupport: "Support",
-    navPricing: "Price",
-    navPrivacy: "Privacy",
-    homeEyebrow: "Workout logging for steady progress",
-    homeTitle: "Train. Log. See progress.",
-    homeIntro:
-      "A focused iPhone app for workouts, plans, timers, and statistics that make training history easier to read.",
-    actionPricing: "View pricing",
-    actionFeatures: "Explore features",
-    slotCalendar: "Calendar screenshot",
-    slotStats: "Statistics screenshot",
-    placeholderCalendar: "Calendar screenshot",
-    placeholderLog: "Exercise log screenshot",
-    placeholderStats: "Statistics screenshot",
-    placeholderPlans: "Plans screenshot",
-    stripLogTitle: "Fast workout log",
-    stripLogBody: "Add sets, weights, reps, duration, distance, and notes without fighting the UI.",
-    stripPlanTitle: "Reusable plans",
-    stripPlanBody: "Build exercises and workout templates, then apply them to any training day.",
-    stripStatsTitle: "Progress you can read",
-    stripStatsBody: "See volume, trends, heatmaps, category balance, and exercise history.",
-    featureEyebrow: "Built around the workout",
-    featureTitle: "Everything starts from the training day.",
-    featureIntro:
-      "FKNGYM is organized around the way you actually train: choose the day, open the plan, log the work, then review what changed.",
-    calendarLabel: "Calendar",
-    calendarTitle: "A workout calendar that stays close.",
-    calendarBody:
-      "Switch between week and month rhythm, keep notes for the day, repeat workouts, and jump back into active exercises.",
-    logLabel: "Exercise log",
-    logTitle: "Weights, reps, time, distance, notes.",
-    logBody: "Each exercise keeps the input mode it needs, including timers for active work.",
-    statsEyebrow: "Statistics Pro",
-    statsTitle: "When the log becomes signal.",
-    statsIntro:
-      "Full statistics unlock long-term history, trend comparison, category focus, and exercise progress views.",
-    statVolumeLabel: "Volume trend",
-    statVolumeTitle: "Track workload over time",
-    statVolumeBody: "Compare categories, zoom through history, and keep previous periods in view.",
-    statHeatmapLabel: "Heatmap",
-    statHeatmapTitle: "Find your rhythm",
-    statHeatmapBody: "See which weeks were consistent and where training dropped off.",
-    statExerciseLabel: "Exercise progress",
-    statExerciseTitle: "Open the history behind a movement",
-    statExerciseBody: "Review how strength, distance, duration, and repetitions changed exercise by exercise.",
-    plansEyebrow: "Plans and templates",
-    plansTitle: "Less setup before the set.",
-    plansBody:
-      "Save exercises, group them by category, mark favorites, and keep reusable workout schemes ready for the next day.",
-    activeEyebrow: "Active workout",
-    activeTitle: "Timers that stay out of the way.",
-    activeBody: "Track timed sets, distance work, notes, and rest without breaking the rhythm of the workout.",
-    activePillTimers: "Rest timers",
-    activePillDuration: "Duration sets",
-    activePillDistance: "Distance work",
-    pricingEyebrow: "Price",
-    pricingTitle: "Start free. Go Pro for full statistics.",
-    pricingIntro:
-      "Free mode is enough to log workouts. Pro opens the full analytics layer when you want to understand long-term progress.",
-    monthlyPlan: "Monthly",
-    monthlyCadence: "per month",
-    annualPlan: "Annual",
-    annualCadence: "per year, 3 days free",
-    supportEyebrow: "Support",
-    supportTitle: "Need help with FKNGYM?",
-    supportBody:
-      "Send a question, bug report, subscription issue, or privacy request. I’ll reply from the FKNGYM support mailbox.",
-    navLabel: "Legal",
-    heroKicker: "Privacy-first workout logging",
-    title: "Privacy Policy",
-    updated: "Effective date: August 1, 2026",
-    intro:
-      "FKNGYM is a workout logging and training statistics app. This Privacy Policy explains what information the app handles and how it is used.",
-    summaryLocal: "Workout data stays on your device and iCloud.",
-    summaryNoAds: "No advertising networks or data sale.",
-    summaryApple: "Payments are processed by Apple.",
-    contentsTitle: "On this page",
-    dataTitle: "Information you enter",
-    dataBody:
-      "FKNGYM lets you save workouts, exercises, sets, weights, repetitions, durations, distances, notes, body measurements, plans, and statistics derived from that information.",
-    usageTitle: "How information is used",
-    usageBody:
-      "Your information is used to provide app features such as workout history, progress tracking, charts, statistics, plans, and live activity summaries. FKNGYM does not sell your data.",
-    storageTitle: "Storage and iCloud",
-    storageBody:
-      "App data is stored on your device. If iCloud is enabled for the app and your Apple account, data may be synced through Apple iCloud using CloudKit. Apple processes iCloud data according to its own terms and privacy policy.",
-    purchasesTitle: "Purchases and subscriptions",
-    purchasesBody:
-      "Subscriptions are handled by Apple through the App Store. FKNGYM does not receive or store your payment card details. The app may receive subscription status information from StoreKit to unlock paid features.",
-    thirdPartiesTitle: "Third parties",
-    thirdPartiesBody:
-      "FKNGYM does not include advertising networks and does not share your workout data with advertisers. Apple services may process data for iCloud sync, App Store purchases, diagnostics, and crash reporting.",
-    controlsTitle: "Your controls",
-    controlsBody:
-      "You can edit or delete the information you enter in the app. You can also manage iCloud availability in system settings and manage or cancel subscriptions in your Apple account settings.",
-    childrenTitle: "Children",
-    childrenBody:
-      "FKNGYM is not directed to children and does not knowingly collect personal information from children.",
-    changesTitle: "Changes",
-    changesBody:
-      "This Privacy Policy may be updated from time to time. If changes are material, the effective date above will be updated.",
-    contactTitle: "Contact",
-    contactBody:
-      'For privacy questions, contact: <a href="mailto:support@fkngym.com">support@fkngym.com</a>.',
-  },
-  ru: {
-    navFeatures: "Функции",
-    navStats: "Статистика",
-    navSupport: "Поддержка",
-    navPricing: "Цена",
-    navPrivacy: "Приватность",
-    homeEyebrow: "Журнал тренировок, который показывает прогресс",
-    homeTitle: "Тренируйся. Записывай. Прогрессируй.",
-    homeIntro:
-      "iPhone-приложение для тренировок, планов, таймеров и статистики, где история занятий читается без лишнего шума.",
-    actionPricing: "Посмотреть цену",
-    actionFeatures: "Что внутри",
-    slotCalendar: "Скриншот календаря",
-    slotStats: "Скриншот статистики",
-    placeholderCalendar: "Скриншот календаря",
-    placeholderLog: "Скриншот журнала",
-    placeholderStats: "Скриншот статистики",
-    placeholderPlans: "Скриншот планов",
-    stripLogTitle: "Быстрый журнал",
-    stripLogBody: "Записывай подходы, вес, повторы, время, дистанцию и заметки без борьбы с интерфейсом.",
-    stripPlanTitle: "Готовые планы",
-    stripPlanBody: "Собери упражнения и шаблоны один раз, а потом применяй их к любому дню.",
-    stripStatsTitle: "Прогресс без гаданий",
-    stripStatsBody: "Смотри объем, тренды, тепловую карту, баланс категорий и историю упражнений.",
-    featureEyebrow: "От дня тренировки",
-    featureTitle: "Все начинается с тренировочного дня.",
-    featureIntro:
-      "FKNGYM устроен вокруг привычного ритма: выбери день, открой план, запиши работу и посмотри, что изменилось.",
-    calendarLabel: "Календарь",
-    calendarTitle: "Календарь, который держит ритм.",
-    calendarBody:
-      "Переключай неделю и месяц, оставляй заметки на день, повторяй тренировки и возвращайся к активным упражнениям.",
-    logLabel: "Журнал упражнений",
-    logTitle: "Вес, повторы, время, дистанция, заметки.",
-    logBody: "У каждого упражнения свой удобный режим ввода, включая таймеры для активной работы.",
-    statsEyebrow: "Статистика Pro",
-    statsTitle: "Когда журнал превращается в сигнал.",
-    statsIntro:
-      "Полная статистика показывает долгую историю, сравнение трендов, фокус по категориям и прогресс в отдельных упражнениях.",
-    statVolumeLabel: "Тренд объема",
-    statVolumeTitle: "Следи за нагрузкой во времени",
-    statVolumeBody: "Сравнивай категории, листай историю и держи прошлые периоды перед глазами.",
-    statHeatmapLabel: "Тепловая карта",
-    statHeatmapTitle: "Найди свой ритм",
-    statHeatmapBody: "Смотри, где недели были стабильными, а где тренировки проседали.",
-    statExerciseLabel: "Прогресс упражнения",
-    statExerciseTitle: "Открой историю движения",
-    statExerciseBody: "Смотри, как менялись сила, дистанция, длительность и повторы в каждом упражнении.",
-    plansEyebrow: "Планы и шаблоны",
-    plansTitle: "Меньше возни перед подходом.",
-    plansBody:
-      "Сохраняй упражнения, группируй их по категориям, отмечай избранное и держи шаблоны тренировок под рукой.",
-    activeEyebrow: "Активная тренировка",
-    activeTitle: "Таймеры не сбивают темп.",
-    activeBody: "Записывай подходы на время, дистанцию, заметки и отдых, не выпадая из тренировки.",
-    activePillTimers: "Таймеры отдыха",
-    activePillDuration: "Подходы на время",
-    activePillDistance: "Дистанция",
-    pricingEyebrow: "Цена",
-    pricingTitle: "Начни бесплатно. Pro откроет всю статистику.",
-    pricingIntro:
-      "Бесплатного режима хватит, чтобы вести журнал тренировок. Pro нужен, когда хочется видеть долгосрочный прогресс без ограничений.",
-    monthlyPlan: "Месяц",
-    monthlyCadence: "в месяц",
-    annualPlan: "Год",
-    annualCadence: "в год, 3 дня бесплатно",
-    supportEyebrow: "Поддержка",
-    supportTitle: "Нужна помощь с FKNGYM?",
-    supportBody:
-      "Напиши вопрос, расскажи об ошибке, проблеме с подпиской или запросе по приватности. Ответ придет с почты поддержки FKNGYM.",
-    navLabel: "Документы",
-    heroKicker: "Приватный журнал тренировок",
-    title: "Политика конфиденциальности",
-    updated: "Дата вступления в силу: 1 августа 2026 г.",
-    intro:
-      "FKNGYM — приложение для ведения журнала тренировок и просмотра тренировочной статистики. Эта Политика конфиденциальности объясняет, какие данные обрабатывает приложение и как они используются.",
-    summaryLocal: "Данные тренировок хранятся на устройстве и в iCloud.",
-    summaryNoAds: "Без рекламных сетей и продажи данных.",
-    summaryApple: "Платежи обрабатывает Apple.",
-    contentsTitle: "На странице",
-    dataTitle: "Данные, которые ты вводишь",
-    dataBody:
-      "FKNGYM позволяет сохранять тренировки, упражнения, подходы, веса, повторения, длительность, дистанции, заметки, замеры тела, планы и статистику, рассчитанную на основе этих данных.",
-    usageTitle: "Как используются данные",
-    usageBody:
-      "Данные используются для работы функций приложения: истории тренировок, отслеживания прогресса, графиков, статистики, планов и Live Activity. FKNGYM не продает твои данные.",
-    storageTitle: "Хранение и iCloud",
-    storageBody:
-      "Данные приложения хранятся на твоем устройстве. Если iCloud включен для приложения и твоего Apple аккаунта, данные могут синхронизироваться через Apple iCloud с использованием CloudKit. Apple обрабатывает данные iCloud согласно собственным условиям и политике конфиденциальности.",
-    purchasesTitle: "Покупки и подписки",
-    purchasesBody:
-      "Подписки обрабатываются Apple через App Store. FKNGYM не получает и не хранит данные твоей платежной карты. Приложение может получать статус подписки из StoreKit, чтобы открывать платные функции.",
-    thirdPartiesTitle: "Третьи стороны",
-    thirdPartiesBody:
-      "FKNGYM не содержит рекламных сетей и не передает данные тренировок рекламодателям. Сервисы Apple могут обрабатывать данные для синхронизации iCloud, покупок App Store, диагностики и отчетов о сбоях.",
-    controlsTitle: "Твой контроль",
-    controlsBody:
-      "Ты можешь редактировать или удалять информацию, которую вводишь в приложении. Также можно управлять iCloud в настройках системы, а подписками — в настройках Apple аккаунта.",
-    childrenTitle: "Дети",
-    childrenBody:
-      "FKNGYM не предназначен специально для детей и сознательно не собирает персональные данные детей.",
-    changesTitle: "Изменения",
-    changesBody:
-      "Эта Политика конфиденциальности может время от времени обновляться. При существенных изменениях дата вступления в силу выше будет обновлена.",
-    contactTitle: "Контакты",
-    contactBody:
-      'По вопросам конфиденциальности напиши: <a href="mailto:support@fkngym.com">support@fkngym.com</a>.',
-  },
+import { nativeLanguageNames, storefrontRegions, matchLocale, suggestedStorefront, marketName, formatPrice, formatPeriod, template, priceFor, availableMarkets } from './pricing.js';
+
+const baseURL = new URL('.', import.meta.url);
+const readJSON = async (path) => {
+  const response = await fetch(new URL(path, baseURL), {cache:'no-cache'});
+  if (!response.ok) throw new Error(`Cannot load ${path}: ${response.status}`);
+  return response.json();
 };
-
-const fallbackLanguage = "en";
-const supportedLanguages = Object.keys(translations);
-
-function preferredLanguage() {
-  const savedLanguage = window.localStorage.getItem("fkngym-public-language");
-
-  if (supportedLanguages.includes(savedLanguage)) {
-    return savedLanguage;
-  }
-
-  const browserLanguages = navigator.languages?.length
-    ? navigator.languages
-    : [navigator.language];
-
-  const matchedLanguage = browserLanguages
-    .map((language) => language?.toLowerCase().split("-")[0])
-    .find((language) => supportedLanguages.includes(language));
-
-  return matchedLanguage || fallbackLanguage;
+function saved(key) { try { return localStorage.getItem(key); } catch { return null; } }
+function save(key,value) { try { localStorage.setItem(key,value); } catch { /* Optional preference storage. */ } }
+const languageKey = 'fkngym-public-language';
+const marketKey = 'fkngym-public-market';
+const header = document.querySelector('.home-header');
+if (header) {
+  new ResizeObserver(() => {
+    document.documentElement.style.setProperty('--header-offset', `${header.getBoundingClientRect().height}px`);
+  }).observe(header);
 }
+const dictionaries = new Map();
+let appData, regional, formats, language = 'en', dictionary, market, marketExplicit = false, languageRequest = 0;
 
-function setLanguage(language) {
-  const dictionary = translations[language] || translations[fallbackLanguage];
-  document.documentElement.lang = language;
-
-  if (document.body.classList.contains("page-home")) {
-    document.title = language === "ru" ? "FKNGYM - Журнал тренировок" : "FKNGYM - Workout Tracking";
-  } else {
-    document.title = language === "ru" ? "FKNGYM Политика конфиденциальности" : "FKNGYM Privacy Policy";
+const pickers = new Map();
+function enhancePicker(select) {
+  if (!('showPopover' in HTMLElement.prototype)) return;
+  const isLanguage = select.hasAttribute('data-language-select');
+  const control = select.parentElement;
+  const label = control.querySelector('[data-i18n]');
+  const trigger = document.createElement('button');
+  trigger.type = 'button';
+  trigger.className = 'picker-trigger';
+  trigger.innerHTML = `<span class="picker-symbol" aria-hidden="true">${isLanguage ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg>' : ''}</span><span class="picker-value"></span><svg class="picker-chevron" aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m4 6 4 4 4-4"/></svg>`;
+  const panel = document.createElement('div');
+  panel.className = 'picker-panel';
+  panel.id = `picker-${pickers.size + 1}`;
+  panel.setAttribute('popover','auto');
+  panel.setAttribute('role','dialog');
+  panel.innerHTML = '<div class="picker-heading"></div><div class="picker-search"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input type="search" autocomplete="off" spellcheck="false"></div><div class="picker-options"></div>';
+  const search = panel.querySelector('input');
+  const options = panel.querySelector('.picker-options');
+  trigger.setAttribute('aria-haspopup','dialog');
+  trigger.setAttribute('aria-controls',panel.id);
+  trigger.setAttribute('aria-expanded','false');
+  document.body.append(panel);
+  control.append(trigger);
+  control.classList.add('picker-ready');
+  select.hidden = true;
+  const fold = value => value.normalize('NFD').replace(/\p{M}/gu,'').toLocaleLowerCase();
+  function renderOptions() {
+    const query = fold(search.value.trim());
+    const matching = [...select.options]
+      .filter(option => fold(`${option.text} ${option.value}`).includes(query))
+      .sort((a,b) => Number(b.value === select.value) - Number(a.value === select.value));
+    options.replaceChildren(...matching.map(option => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'picker-option';
+      button.setAttribute('aria-pressed',String(option.value === select.value));
+      button.textContent = option.text;
+      if (isLanguage) button.lang = option.value;
+      button.dir = 'auto';
+      button.addEventListener('click',() => {
+        select.value = option.value;
+        panel.hidePopover();
+        trigger.focus();
+        select.dispatchEvent(new Event('change',{bubbles:true}));
+      });
+      return button;
+    }));
   }
-
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const key = element.dataset.i18n;
-    const value = dictionary[key];
-
-    if (!value) {
-      return;
-    }
-
-    if (value.includes("<a ")) {
-      element.innerHTML = value;
-    } else {
-      element.textContent = value;
-    }
+  function position() {
+    const rect = trigger.getBoundingClientRect();
+    const width = Math.min(360,innerWidth - 24);
+    const below = innerHeight - rect.bottom - 20;
+    const above = rect.top - 20;
+    const opensAbove = below < 300 && above > below;
+    panel.style.width = `${width}px`;
+    panel.style.left = `${Math.max(12,Math.min(document.documentElement.dir === 'rtl' ? rect.left : rect.right - width,innerWidth - width - 12))}px`;
+    panel.style.maxHeight = `${Math.max(140,Math.min(460,opensAbove ? above : below))}px`;
+    panel.style.top = opensAbove ? 'auto' : `${rect.bottom + 10}px`;
+    panel.style.bottom = opensAbove ? `${innerHeight - rect.top + 10}px` : 'auto';
+  }
+  trigger.addEventListener('click',() => {
+    if (panel.matches(':popover-open')) { panel.hidePopover(); return; }
+    search.value = '';
+    renderOptions();
+    position();
+    panel.showPopover();
+    search.focus({preventScroll:true});
   });
-
-  document.querySelectorAll("[data-language-button]").forEach((button) => {
-    const isActive = button.dataset.languageButton === language;
-    button.setAttribute("aria-pressed", String(isActive));
+  panel.addEventListener('toggle',event => trigger.setAttribute('aria-expanded',String(event.newState === 'open')));
+  search.addEventListener('input',renderOptions);
+  panel.addEventListener('keydown',event => {
+    if (!['ArrowDown','ArrowUp','Home','End'].includes(event.key)) return;
+    if (event.target === search && event.key !== 'ArrowDown') return;
+    const buttons = [...options.children];
+    if (!buttons.length) return;
+    event.preventDefault();
+    const index = buttons.indexOf(document.activeElement);
+    const next = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1 : (index + (event.key === 'ArrowDown' ? 1 : -1) + buttons.length) % buttons.length;
+    buttons[next].focus();
   });
-
-  window.localStorage.setItem("fkngym-public-language", language);
+  window.addEventListener('resize',() => { if (panel.matches(':popover-open')) position(); });
+  document.addEventListener('scroll',() => { if (panel.matches(':popover-open')) position(); },true);
+  function sync() {
+    const selected = select.selectedOptions[0];
+    trigger.querySelector('.picker-value').textContent = selected?.text || '';
+    trigger.setAttribute('aria-label',`${label.textContent}: ${selected?.text || ''}`);
+    trigger.disabled = select.disabled;
+    panel.setAttribute('aria-label',label.textContent);
+    panel.querySelector('.picker-heading').textContent = label.textContent;
+    search.setAttribute('aria-label',label.textContent);
+    if (!isLanguage) {
+      const region = storefrontRegions[select.value];
+      trigger.querySelector('.picker-symbol').textContent = region ? [...region].map(char => String.fromCodePoint(127397 + char.charCodeAt(0))).join('') : '◎';
+    }
+    if (panel.matches(':popover-open')) renderOptions();
+  }
+  pickers.set(select,{sync});
+  sync();
 }
+function syncPickers() { pickers.forEach(picker => picker.sync()); }
 
-document.querySelectorAll("[data-language-button]").forEach((button) => {
-  button.addEventListener("click", () => {
-    setLanguage(button.dataset.languageButton);
+function languageName(locale) {
+  return nativeLanguageNames[locale] || new Intl.DisplayNames([locale], {type:'language'}).of(locale);
+}
+function initializeLanguageSelectors() {
+  document.querySelectorAll('[data-language-select]').forEach(select => {
+    select.replaceChildren(...appData.locales.map(locale => new Option(languageName(locale), locale)));
+    select.addEventListener('change', () => setLanguage(select.value));
+    select.disabled = false;
   });
+}
+function updateMarketSelector() {
+  const markets = availableMarkets(appData,regional);
+  if (!markets.includes(market)) market = suggestedStorefront(language,markets,appData.source.storefront);
+  document.querySelectorAll('[data-market-select]').forEach(select => {
+    select.replaceChildren(...markets.map(id => new Option(marketName(id,language,formats),id)));
+    select.value = market;
+    select.disabled = markets.length < 2;
+  });
+  syncPickers();
+}
+function updatePrices() {
+  if (!dictionary) return;
+  updateMarketSelector();
+  for (const plan of ['monthly','annual']) {
+    const product = appData.products[plan];
+    const price = priceFor(appData,regional,plan,market);
+    const localized = product.localizations[language];
+    const sourceName = matchLocale(localized?.locale,[language]) ? localized.name : dictionary[`${plan}Plan`];
+    document.querySelectorAll(`[data-plan-name="${plan}"]`).forEach(node => { node.textContent = sourceName; });
+    document.querySelectorAll(`[data-price="${plan}"]`).forEach(node => {
+      node.textContent = price ? formatPrice(price.price,price.currency,language,formats) : dictionary.priceUnavailable;
+      node.classList.toggle('price-unavailable',!price);
+    });
+    const period = formatPeriod(product.period,language,formats);
+    document.querySelectorAll(`[data-period="${plan}"]`).forEach(node => {
+      node.textContent = template(dictionary.billingPeriod,{period});
+      node.hidden = !price;
+    });
+    // Only the StoreKit base storefront's trial is known without an ASC offer export.
+    // Regional snapshots explicitly supply eligible offers per territory, never infer them from language.
+    const trial = regional?.source ? price?.trial : product.trial;
+    document.querySelectorAll(`[data-trial="${plan}"]`).forEach(node => {
+      node.hidden = !price || !trial;
+      node.textContent = price && trial ? template(dictionary.freeTrial,{period:formatPeriod(trial,language,formats)}) : '';
+    });
+    document.querySelectorAll(`[data-trial-after="${plan}"]`).forEach(node => {
+      node.hidden = !price || !trial;
+      node.textContent = price && trial ? template(dictionary.trialAfter,{price:formatPrice(price.price,price.currency,language,formats),period}) : '';
+    });
+  }
+  const displayed = ['monthly','annual'].map(plan => priceFor(appData,regional,plan,market)).find(Boolean);
+  document.querySelectorAll('[data-price-source]').forEach(node => {
+    node.textContent = template(dictionary.priceSourceNotice,{market:marketName(market,language,formats),currency:displayed?.currency || ''});
+  });
+}
+function updateLocalLinks() {
+  document.querySelectorAll('a[href]').forEach(link => {
+    const raw = link.getAttribute('href');
+    if (!raw.startsWith('/') || raw.startsWith('//')) return;
+    const url = new URL(raw,location.origin);
+    url.searchParams.set('lang',language);
+    if (marketExplicit && market) url.searchParams.set('market',market);
+    else url.searchParams.delete('market');
+    link.setAttribute('href',`${url.pathname}${url.search}${url.hash}`);
+  });
+}
+async function setLanguage(requested) {
+  const selected = matchLocale(requested,appData.locales) || 'en';
+  const request = ++languageRequest;
+  try {
+    if (!dictionaries.has(selected)) dictionaries.set(selected,await readJSON(`locales/${selected}.json`));
+    if (request !== languageRequest) return;
+    const next = dictionaries.get(selected);
+    if (!Object.keys(dictionaries.get('en')).every(key => typeof next[key] === 'string' && next[key])) throw new Error('Incomplete translation');
+    language = selected;
+    dictionary = next;
+    document.documentElement.lang = language;
+    document.documentElement.dir = ['ar','he'].includes(language) ? 'rtl' : 'ltr';
+    document.title = `FKNGYM — ${dictionary[document.body.dataset.pageTitle || 'homePageTitle']}`;
+    document.querySelectorAll('[data-i18n]').forEach(node => {
+      const value = dictionary[node.dataset.i18n];
+      // Translation files are bundled first-party content, validated at build time.
+      if (value.includes('<a ')) node.innerHTML = value;
+      else node.textContent = value;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(node => node.setAttribute('aria-label',dictionary[node.dataset.i18nAria]));
+    document.querySelectorAll('[data-language-select]').forEach(select => { select.value = language; });
+    syncPickers();
+    document.querySelectorAll('[data-language-status]').forEach(node => { node.textContent = ''; });
+    if (!marketExplicit) market = suggestedStorefront(language,availableMarkets(appData,regional),appData.source.storefront);
+    updatePrices();
+    updateLocalLinks();
+    save(languageKey,language);
+    const url = new URL(location.href);
+    url.searchParams.set('lang',language);
+    history.replaceState(null,'',url);
+  } catch (error) {
+    if (request !== languageRequest) return;
+    document.querySelectorAll('[data-language-select]').forEach(select => { select.value = language; });
+    document.querySelectorAll('[data-language-status]').forEach(node => { node.textContent = dictionary?.languageError || 'Could not load this language. Please try again.'; });
+    console.error('Language loading failed',error);
+  }
+}
+async function initialize() {
+  [appData,regional,formats] = await Promise.all([readJSON('data/app-data.json'),readJSON('data/regional-prices.json'),readJSON('data/formats.json')]);
+  dictionary = await readJSON('locales/en.json');
+  dictionaries.set('en',dictionary);
+  initializeLanguageSelectors();
+  const query = new URLSearchParams(location.search);
+  const requestedMarket = query.get('market') || saved(marketKey);
+  marketExplicit = availableMarkets(appData,regional).includes(requestedMarket);
+  market = marketExplicit ? requestedMarket : appData.source.storefront;
+  document.querySelectorAll('[data-market-select]').forEach(select => {
+    select.addEventListener('change',() => {
+      market = select.value;
+      marketExplicit = true;
+      save(marketKey,market);
+      const url = new URL(location.href); url.searchParams.set('market',market); history.replaceState(null,'',url);
+      updatePrices(); updateLocalLinks();
+    });
+  });
+  const requested = [query.get('lang'),saved(languageKey),...(navigator.languages || [navigator.language])]
+    .map(value => matchLocale(value,appData.locales)).find(Boolean) || 'en';
+  await setLanguage(requested);
+  document.querySelectorAll('[data-language-select],[data-market-select]').forEach(enhancePicker);
+}
+initialize().catch(error => {
+  // The generated English HTML, prices, legal text, and links remain available.
+  console.error('Site data loading failed',error);
 });
-
-setLanguage(preferredLanguage());

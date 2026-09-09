@@ -1,0 +1,16 @@
+{
+  "name": "fkngym-public",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync.mjs",
+    "sync:check": "node scripts/sync.mjs --check",
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "prices:apple": "node scripts/export-asc-prices.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

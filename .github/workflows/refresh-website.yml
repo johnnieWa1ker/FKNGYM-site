@@ -1,0 +1,83 @@
+name: Refresh website data
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: FKNGYM app branch, tag, or commit to synchronize
+        required: true
+        default: main
+        type: string
+      publish:
+        description: Deploy the refreshed website to GitHub Pages
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fkngym-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: website
+      - uses: actions/checkout@v4
+        with:
+          repository: johnnieWa1ker/Kratos
+          ref: ${{ inputs.source_ref }}
+          token: ${{ secrets.FKNGYM_SOURCE_TOKEN || github.token }}
+          path: app-source
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate pricing logic
+        working-directory: website
+        run: npm test
+      - name: Sync StoreKit configuration and app locales
+        working-directory: website
+        env:
+          FKNGYM_APP_ROOT: ${{ github.workspace }}/app-source
+        run: npm run sync
+      - name: Read current Apple prices and offers
+        working-directory: website
+        env:
+          APPSTORE_KEY_ID: ${{ secrets.APPSTORE_KEY_ID }}
+          APPSTORE_ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
+          APPSTORE_PRIVATE_KEY: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+        run: npm run prices:apple
+      - name: Build complete localized site
+        working-directory: website
+        run: npm run build -- --snapshot
+      - name: Save generated website for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: fkngym-website
+          path: website/dist/
+          include-hidden-files: true
+      - name: Prepare Pages artifact
+        if: inputs.publish
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: website/dist/
+
+  deploy:
+    if: inputs.publish
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4

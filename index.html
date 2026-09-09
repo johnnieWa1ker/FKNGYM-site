@@ -30,24 +30,28 @@
     <meta name="twitter:image" content="https://fkngym.com/assets/og-image.png?v=20260803-2">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css?v=20260803-12">
+    <link rel="stylesheet" href="styles.css?v=20260909-pickers">
   </head>
-  <body class="page-home">
+  <body class="page-home" data-page-title="homePageTitle">
     <header class="home-header">
       <div class="header-bar">
-        <a class="brand-link" href="#home" aria-label="FKNGYM home">
+        <a class="brand-link" href="#home" aria-label="FKNGYM">
           <span class="mascot-mark" aria-hidden="true">
             <img src="assets/mascot-transparent.png" alt="">
           </span>
           <span class="wordmark"><span>FKN</span>GYM</span>
         </a>
 
-        <nav class="header-nav" aria-label="Main navigation">
+        <nav class="header-nav" aria-label="FKNGYM">
           <a href="#features" data-i18n="navFeatures">Features</a>
           <a href="#statistics" data-i18n="navStats">Stats</a>
           <a href="#pricing" data-i18n="navPricing">Price</a>
-          <a href="#support" data-i18n="navSupport">Support</a>
+          <a href="#documents" data-i18n="navDocuments">Documents</a>
         </nav>
+        <div class="language-control">
+          <span data-i18n="languageLabel">Language</span>
+          <select data-language-select aria-label="Language" data-i18n-aria="languageLabel" disabled><option value="ar">العربية</option><option value="cs">Čeština</option><option value="da">Dansk</option><option value="de">Deutsch</option><option value="el">Ελληνικά</option><option value="en" selected>English</option><option value="es">Español</option><option value="fi">Suomi</option><option value="fr">Français</option><option value="he">עברית</option><option value="hi">हिन्दी</option><option value="hu">Magyar</option><option value="id">Bahasa Indonesia</option><option value="it">Italiano</option><option value="ja">日本語</option><option value="ka">ქართული</option><option value="ko">한국어</option><option value="nl">Nederlands</option><option value="pl">Polski</option><option value="pt-BR">Português (Brasil)</option><option value="ro">Română</option><option value="ru">Русский</option><option value="sv">Svenska</option><option value="th">ไทย</option><option value="tr">Türkçe</option><option value="uk">Українська</option><option value="vi">Tiếng Việt</option><option value="zh-Hans">简体中文</option><option value="zh-Hant">繁體中文</option></select>
+        </div>
       </div>
     </header>
 
@@ -56,17 +60,15 @@
         <div class="hero-panel">
           <div class="hero-copy-block">
             <p class="eyebrow eyebrow-light" data-i18n="homeEyebrow">Workout logging for steady progress</p>
-            <h1 data-i18n="homeTitle">Train today. Understand tomorrow.</h1>
-            <p data-i18n="homeIntro">
-              FKNGYM keeps your workout calendar, exercise log, plans, timers, and progress statistics in one focused iPhone app.
-            </p>
+            <h1 data-i18n="homeTitle">Train. Log. See progress.</h1>
+            <p data-i18n="homeIntro">A focused iPhone app for workouts, plans, timers, and statistics that make training history easier to read.</p>
             <div class="hero-actions">
               <a class="primary-action primary-action-dark" href="#pricing" data-i18n="actionPricing">View pricing</a>
               <a class="secondary-action secondary-action-light" href="#features" data-i18n="actionFeatures">Explore features</a>
             </div>
           </div>
 
-          <div class="hero-art" aria-label="FKNGYM app preview">
+          <div class="hero-art" aria-label="FKNGYM app preview" data-i18n-aria="homePageTitle">
             <div class="hero-device hero-device-main">
               <div class="screenshot-placeholder" data-i18n="slotCalendar">Calendar screenshot</div>
             </div>
@@ -78,7 +80,7 @@
         </div>
       </section>
 
-      <section class="feature-strip" aria-label="Product highlights">
+      <section class="feature-strip" aria-label="Product highlights" data-i18n-aria="navFeatures">
         <article>
           <span>01</span>
           <h2 data-i18n="stripLogTitle">Fast workout log</h2>
@@ -100,9 +102,7 @@
         <div class="section-heading">
           <p class="eyebrow" data-i18n="featureEyebrow">Built around the workout</p>
           <h2 data-i18n="featureTitle">Everything starts from the training day.</h2>
-          <p data-i18n="featureIntro">
-            FKNGYM is organized around the way you actually train: choose the day, open the plan, log the work, then review what changed.
-          </p>
+          <p data-i18n="featureIntro">FKNGYM is organized around the way you actually train: choose the day, open the plan, log the work, then review what changed.</p>
         </div>
 
         <div class="bento-grid">
@@ -110,9 +110,7 @@
             <div class="bento-copy">
               <span data-i18n="calendarLabel">Calendar</span>
               <h3 data-i18n="calendarTitle">A workout calendar that stays close.</h3>
-              <p data-i18n="calendarBody">
-                Switch between week and month rhythm, keep notes for the day, repeat workouts, and jump back into active exercises.
-              </p>
+              <p data-i18n="calendarBody">Switch between week and month rhythm, keep notes for the day, repeat workouts, and jump back into active exercises.</p>
             </div>
             <div class="screenshot-frame phone-frame">
               <div class="screenshot-placeholder" data-i18n="placeholderCalendar">Calendar screenshot</div>
@@ -142,9 +140,7 @@
         <div class="stats-copy">
           <p class="eyebrow" data-i18n="statsEyebrow">Statistics Pro</p>
           <h2 data-i18n="statsTitle">When the log becomes signal.</h2>
-          <p data-i18n="statsIntro">
-            Full statistics unlock long-term history, trend comparison, category focus, and exercise progress views.
-          </p>
+          <p data-i18n="statsIntro">Full statistics unlock long-term history, trend comparison, category focus, and exercise progress views.</p>
         </div>
 
         <div class="stats-board">
@@ -182,9 +178,7 @@
         <div class="plans-copy">
           <p class="eyebrow" data-i18n="plansEyebrow">Plans and templates</p>
           <h2 data-i18n="plansTitle">Less setup before the set.</h2>
-          <p data-i18n="plansBody">
-            Save exercises, group them by category, mark favorites, and keep reusable workout schemes ready for the next day.
-          </p>
+          <p data-i18n="plansBody">Save exercises, group them by category, mark favorites, and keep reusable workout schemes ready for the next day.</p>
         </div>
       </section>
 
@@ -192,11 +186,9 @@
         <div class="active-copy">
           <p class="eyebrow eyebrow-light" data-i18n="activeEyebrow">Active workout</p>
           <h2 data-i18n="activeTitle">Timers that stay out of the way.</h2>
-          <p data-i18n="activeBody">
-            Track timed sets, distance work, notes, and rest without breaking the rhythm of the workout.
-          </p>
+          <p data-i18n="activeBody">Track timed sets, distance work, notes, and rest without breaking the rhythm of the workout.</p>
         </div>
-        <div class="active-pills" aria-label="Active workout features">
+        <div class="active-pills" aria-label="Active workout features" data-i18n-aria="activeEyebrow">
           <span data-i18n="activePillTimers">Rest timers</span>
           <span data-i18n="activePillDuration">Duration sets</span>
           <span data-i18n="activePillDistance">Distance work</span>
@@ -209,22 +201,32 @@
           <div class="section-heading">
             <p class="eyebrow" data-i18n="pricingEyebrow">Price</p>
             <h2 data-i18n="pricingTitle">Start free. Go Pro for full statistics.</h2>
-            <p data-i18n="pricingIntro">
-              Free mode is enough to log workouts. Pro opens the full analytics layer when you want to understand long-term progress.
-            </p>
+            <p data-i18n="pricingIntro">Free mode is enough to log workouts. Pro opens the full analytics layer when you want to understand long-term progress.</p>
           </div>
 
+          <div class="pricing-options">
+          <div class="market-control">
+            <span data-i18n="marketLabel">App Store country or region</span>
+            <select data-market-select aria-label="App Store country or region" data-i18n-aria="marketLabel" disabled><option value="USA" selected>United States</option></select>
+          </div>
           <div class="pricing-grid">
             <article class="price-card">
-              <p data-i18n="monthlyPlan">Monthly</p>
-              <strong>$1.99</strong>
-              <span data-i18n="monthlyCadence">per month</span>
+              <p data-plan-name="monthly">Monthly</p>
+              <strong><bdi data-price="monthly">$1.99</bdi></strong>
+              <span data-period="monthly">Billed every 1 month</span>
+              <span data-trial="monthly" class="trial-note" hidden></span>
+              <span data-trial-after="monthly" class="trial-after" hidden></span>
             </article>
             <article class="price-card price-card-featured">
-              <p data-i18n="annualPlan">Annual</p>
-              <strong>$14.99</strong>
-              <span data-i18n="annualCadence">per year, 3 days free</span>
+              <p data-plan-name="annual">Annual</p>
+              <strong><bdi data-price="annual">$12.99</bdi></strong>
+              <span data-period="annual">Billed every 1 year</span>
+              <span data-trial="annual" class="trial-note">3 days free for eligible subscribers</span>
+              <span data-trial-after="annual" class="trial-after">Then $12.99 every 1 year</span>
             </article>
+          </div>
+          <p data-price-source class="pricing-notice">Prices shown for United States in USD. Your Apple Account country or region determines the final price and offer eligibility.</p>
+          <p data-i18n="pricingNotice" class="pricing-notice">Subscriptions renew automatically until canceled. The App Store purchase screen shows the current local price, billing period, and any eligible trial before you confirm. Read the <a href="/terms/#subscriptions">subscription terms</a> and <a href="/privacy/">Privacy Policy</a>.</p>
           </div>
         </div>
       </section>
@@ -234,11 +236,20 @@
           <div>
             <p class="eyebrow" data-i18n="supportEyebrow">Support</p>
             <h2 data-i18n="supportTitle">Need help with FKNGYM?</h2>
-            <p data-i18n="supportBody">
-              Send a question, bug report, subscription issue, or privacy request. I’ll reply from the FKNGYM support mailbox.
-            </p>
+            <p data-i18n="supportBody">Send a question, bug report, subscription issue, or privacy request. I’ll reply from the FKNGYM support mailbox.</p>
           </div>
           <a class="primary-action" href="mailto:support@fkngym.com">support@fkngym.com</a>
+        </div>
+      </section>
+      <section class="documents-section" id="documents" aria-labelledby="documents-title">
+        <div class="section-heading">
+          <h2 data-i18n="documentsTitle" id="documents-title">Documents & support</h2>
+          <p data-i18n="documentsIntro">How your data is handled, the terms for using FKNGYM, and help when you need it.</p>
+        </div>
+        <div class="documents-grid">
+          <a class="document-card" href="/privacy/"><h3 data-i18n="navPrivacy">Privacy</h3><p data-i18n="privacyCard">Data, storage, deletion, and privacy requests.</p></a>
+          <a class="document-card" href="/terms/"><h3 data-i18n="navTerms">Terms of Use</h3><p data-i18n="termsCard">Apple Standard EULA, subscriptions, and export restrictions.</p></a>
+          <a class="document-card" href="/support/"><h3 data-i18n="navSupport">Support</h3><p data-i18n="supportCard">Contact the developer, manage a subscription, or get purchase help.</p></a>
         </div>
       </section>
     </main>
@@ -251,17 +262,20 @@
         <p><span>FKN</span>GYM</p>
       </div>
 
-      <nav aria-label="Footer navigation">
+      <nav aria-label="Footer navigation" data-i18n-aria="navLabel">
         <a href="/privacy/" data-i18n="navPrivacy">Privacy</a>
+        <a href="/terms/" data-i18n="navTerms">Terms of Use</a>
+        <a href="/support/" data-i18n="navSupport">Support</a>
         <a href="mailto:support@fkngym.com">support@fkngym.com</a>
       </nav>
 
-      <div class="footer-language" aria-label="Language">
-        <button type="button" data-language-button="en" aria-label="English">🇺🇸</button>
-        <button type="button" data-language-button="ru" aria-label="Русский">🇷🇺</button>
-      </div>
+      <div class="language-control">
+          <span data-i18n="languageLabel">Language</span>
+          <select data-language-select aria-label="Language" data-i18n-aria="languageLabel" disabled><option value="ar">العربية</option><option value="cs">Čeština</option><option value="da">Dansk</option><option value="de">Deutsch</option><option value="el">Ελληνικά</option><option value="en" selected>English</option><option value="es">Español</option><option value="fi">Suomi</option><option value="fr">Français</option><option value="he">עברית</option><option value="hi">हिन्दी</option><option value="hu">Magyar</option><option value="id">Bahasa Indonesia</option><option value="it">Italiano</option><option value="ja">日本語</option><option value="ka">ქართული</option><option value="ko">한국어</option><option value="nl">Nederlands</option><option value="pl">Polski</option><option value="pt-BR">Português (Brasil)</option><option value="ro">Română</option><option value="ru">Русский</option><option value="sv">Svenska</option><option value="th">ไทย</option><option value="tr">Türkçe</option><option value="uk">Українська</option><option value="vi">Tiếng Việt</option><option value="zh-Hans">简体中文</option><option value="zh-Hant">繁體中文</option></select>
+        </div>
     </footer>
 
-    <script src="script.js?v=20260802"></script>
+    <p class="language-status" data-language-status role="status"></p>
+    <script type="module" src="script.js?v=20260909-pickers"></script>
   </body>
 </html>
