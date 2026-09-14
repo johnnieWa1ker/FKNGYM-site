@@ -10,6 +10,10 @@ function saved(key) { try { return localStorage.getItem(key); } catch { return n
 function save(key,value) { try { localStorage.setItem(key,value); } catch { /* Optional preference storage. */ } }
 const languageKey = 'fkngym-public-language';
 const marketKey = 'fkngym-public-market';
+const themeKey = 'fkngym-public-theme';
+const themeQuery = matchMedia('(prefers-color-scheme: dark)');
+const themeOrder = ['system','light','dark'];
+let themePreference = document.documentElement.dataset.themePreference || 'system';
 const header = document.querySelector('.home-header');
 if (header) {
   new ResizeObserver(() => {
@@ -17,7 +21,57 @@ if (header) {
   }).observe(header);
 }
 const dictionaries = new Map();
-let appData, regional, formats, language = 'en', dictionary, market, marketExplicit = false, languageRequest = 0;
+let appData, regional, formats, screenshots, widgets, language = 'en', dictionary, market, marketExplicit = false, languageRequest = 0;
+
+const themeLabels = {
+  en: {theme:'Theme',system:'System',light:'Light',dark:'Dark',next:'Switch to'},
+  ru: {theme:'Тема',system:'Системная',light:'Светлая',dark:'Тёмная',next:'Переключить на'}
+};
+const themeIcons = {
+  system: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="5" width="17" height="12" rx="2.5"/><path d="M9 21h6M12 17v4"/></svg>',
+  light: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></svg>',
+  dark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.2 15.1A8.3 8.3 0 0 1 8.9 3.8 8.5 8.5 0 1 0 20.2 15.1Z"/></svg>'
+};
+function resolvedTheme(preference=themePreference) {
+  return preference === 'system' ? (themeQuery.matches ? 'dark' : 'light') : preference;
+}
+function syncThemeControls() {
+  const labels = themeLabels[language] || themeLabels.en;
+  const next = themeOrder[(themeOrder.indexOf(themePreference) + 1) % themeOrder.length];
+  document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+    button.dataset.theme = themePreference;
+    button.querySelector('[data-theme-icon]').innerHTML = themeIcons[themePreference];
+    button.setAttribute('aria-label',`${labels.theme}: ${labels[themePreference]}. ${labels.next}: ${labels[next]}`);
+    button.title = button.getAttribute('aria-label');
+  });
+}
+function applyTheme(preference,{persist=true}={}) {
+  themePreference = themeOrder.includes(preference) ? preference : 'system';
+  document.documentElement.dataset.themePreference = themePreference;
+  document.documentElement.dataset.theme = resolvedTheme();
+  if (persist) save(themeKey,themePreference);
+  syncThemeControls();
+  if (screenshots) updateScreenshots();
+  if (widgets) updateWidgets();
+}
+function initializeThemeControls() {
+  document.querySelectorAll('.header-bar,.topbar').forEach(bar => {
+    const languageControl = bar.querySelector('.language-control');
+    if (!languageControl) return;
+    const group = document.createElement('div');
+    group.className = 'preference-group';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'theme-toggle';
+    button.dataset.themeToggle = '';
+    button.innerHTML = '<span class="theme-icon" data-theme-icon aria-hidden="true"></span>';
+    button.addEventListener('click',() => applyTheme(themeOrder[(themeOrder.indexOf(themePreference) + 1) % themeOrder.length]));
+    bar.insertBefore(group,languageControl);
+    group.append(button,languageControl);
+  });
+  syncThemeControls();
+}
+themeQuery.addEventListener('change',() => { if (themePreference === 'system') applyTheme('system',{persist:false}); });
 
 const pickers = new Map();
 function enhancePicker(select) {
@@ -188,6 +242,80 @@ function updateLocalLinks() {
     link.setAttribute('href',`${url.pathname}${url.search}${url.hash}`);
   });
 }
+function updateScreenshots() {
+  const theme = resolvedTheme();
+  const fallbackLocale = screenshots.locales[screenshots.defaultLocale];
+  const fallback = fallbackLocale[theme] || fallbackLocale.light;
+  const localizedLocale = screenshots.locales[language] || fallbackLocale;
+  const localized = localizedLocale[theme] || localizedLocale.light || fallback;
+  document.querySelectorAll('[data-screenshot]').forEach(image => {
+    const path = localized[image.dataset.screenshot] || fallback[image.dataset.screenshot];
+    image.src = new URL(path,baseURL).href;
+  });
+}
+function updateWidgets() {
+  const theme = resolvedTheme();
+  const fallbackLocale = widgets.locales[widgets.defaultLocale];
+  const fallbackRoot = fallbackLocale[theme] || fallbackLocale.light;
+  const localizedLocale = widgets.locales[language] || fallbackLocale;
+  const root = localizedLocale[theme] || localizedLocale.light || fallbackRoot;
+  document.querySelectorAll('[data-widget]').forEach(image => {
+    image.src = new URL(`${root}/${image.dataset.widget}.png`,baseURL).href;
+  });
+}
+function initializeWidgetWall() {
+  const wall = document.querySelector('.widget-wall');
+  if (!wall) return;
+  const tiles = [...wall.querySelectorAll('.widget-tile')];
+  wall.replaceChildren(...tiles);
+  let frame;
+  const layout = () => {
+    const compact = innerWidth < 560;
+    const rowHeight = compact
+      ? Math.min(68,Math.max(52,innerWidth * 0.16))
+      : Math.min(180,Math.max(88,innerWidth * 0.095));
+    const gap = compact ? 7 : Math.min(18,Math.max(10,innerWidth * 0.011));
+    const verticalInset = compact ? 8 : 16;
+    const cursor = [-rowHeight * 0.72,-rowHeight * 0.18,-rowHeight * 0.94];
+    const lastType = ['', '', ''];
+    const orderedTiles = [
+      ...tiles.filter(tile => tile.classList.contains('widget-large')),
+      ...tiles.filter(tile => !tile.classList.contains('widget-large'))
+    ];
+
+    for (const tile of orderedTiles) {
+      const name = tile.querySelector('[data-widget]').dataset.widget;
+      const type = name.split('-')[0];
+      const large = tile.classList.contains('widget-large');
+      const height = large ? rowHeight * 2 + gap : rowHeight;
+      const ratio = large ? 1092 / 1146 : tile.classList.contains('widget-medium') ? 1092 / 510 : 492 / 510;
+      // Anchor tall cards together first; the remaining cards then backfill all three lanes.
+      const candidates = large ? [0] : [0,1,2];
+      const row = candidates.reduce((best,next) => {
+        const bestStart = large ? Math.max(cursor[best],cursor[best + 1]) : cursor[best];
+        const nextStart = large ? Math.max(cursor[next],cursor[next + 1]) : cursor[next];
+        const bestRepeat = large ? lastType[best] === type || lastType[best + 1] === type : lastType[best] === type;
+        const nextRepeat = large ? lastType[next] === type || lastType[next + 1] === type : lastType[next] === type;
+        return nextStart + (nextRepeat ? rowHeight * 3 : 0) < bestStart + (bestRepeat ? rowHeight * 3 : 0) ? next : best;
+      },candidates[0]);
+      const left = large ? Math.max(cursor[row],cursor[row + 1]) : cursor[row];
+      tile.style.cssText = `left:${left}px;top:${verticalInset + row * (rowHeight + gap)}px;width:${height * ratio}px;height:${height}px`;
+      cursor[row] = left + height * ratio + gap;
+      lastType[row] = type;
+      if (large) {
+        cursor[row + 1] = cursor[row];
+        lastType[row + 1] = type;
+      }
+    }
+    wall.style.height = `${rowHeight * 3 + gap * 2 + verticalInset * 2}px`;
+    wall.dataset.layoutReady = '';
+  };
+  layout();
+  addEventListener('resize',() => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(layout);
+  });
+}
 async function setLanguage(requested) {
   const selected = matchLocale(requested,appData.locales) || 'en';
   const request = ++languageRequest;
@@ -209,10 +337,13 @@ async function setLanguage(requested) {
     });
     document.querySelectorAll('[data-i18n-aria]').forEach(node => node.setAttribute('aria-label',dictionary[node.dataset.i18nAria]));
     document.querySelectorAll('[data-language-select]').forEach(select => { select.value = language; });
+    syncThemeControls();
     syncPickers();
     document.querySelectorAll('[data-language-status]').forEach(node => { node.textContent = ''; });
     if (!marketExplicit) market = suggestedStorefront(language,availableMarkets(appData,regional),appData.source.storefront);
     updatePrices();
+    updateScreenshots();
+    updateWidgets();
     updateLocalLinks();
     save(languageKey,language);
     const url = new URL(location.href);
@@ -226,10 +357,14 @@ async function setLanguage(requested) {
   }
 }
 async function initialize() {
-  [appData,regional,formats] = await Promise.all([readJSON('data/app-data.json'),readJSON('data/regional-prices.json'),readJSON('data/formats.json')]);
+  // Lay out decorative images before any network requests can delay initialization.
+  initializeWidgetWall();
+  [appData,regional,formats,screenshots,widgets] = await Promise.all([readJSON('data/app-data.json'),readJSON('data/regional-prices.json'),readJSON('data/formats.json'),readJSON('data/screenshots.json'),readJSON('data/widgets.json')]);
   dictionary = await readJSON('locales/en.json');
   dictionaries.set('en',dictionary);
   initializeLanguageSelectors();
+  initializeThemeControls();
+  applyTheme(saved(themeKey) || themePreference,{persist:false});
   const query = new URLSearchParams(location.search);
   const requestedMarket = query.get('market') || saved(marketKey);
   marketExplicit = availableMarkets(appData,regional).includes(requestedMarket);

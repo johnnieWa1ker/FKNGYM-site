@@ -1,4 +1,4 @@
-import { readFile,readdir } from 'node:fs/promises';
+import { access,readFile,readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { siteRoot } from './sync-app-data.mjs';
 import { pages } from './render-html.mjs';
@@ -6,7 +6,7 @@ const values = (value,pattern) => [...value.matchAll(pattern)].map(match=>match[
 const equal = (left,right) => JSON.stringify(left)===JSON.stringify(right);
 export async function validateSite(root=siteRoot) {
   const load = async path=>JSON.parse(await readFile(resolve(root,path),'utf8'));
-  const [app,base,regional,formats] = await Promise.all(['data/app-data.json','locales/en.json','data/regional-prices.json','data/formats.json'].map(load));
+  const [app,base,regional,formats,screenshots,widgets] = await Promise.all(['data/app-data.json','locales/en.json','data/regional-prices.json','data/formats.json','data/screenshots.json','data/widgets.json'].map(load));
   const keys=Object.keys(base).sort();
   const files=(await readdir(resolve(root,'locales'))).filter(file=>file.endsWith('.json')).map(file=>file.slice(0,-5)).sort();
   if (!equal(files,[...app.locales].sort())) throw new Error(`Website translations must match all ${app.locales.length} app locales. Found: ${files.join(', ')}`);
@@ -24,11 +24,36 @@ export async function validateSite(root=siteRoot) {
   }
   const ids = {};
   const htmlByPage = Object.fromEntries(await Promise.all(pages.map(async page=>[page,await readFile(resolve(root,page),'utf8')])));
+  const themes=['dark','light'];
+  const defaultScreenshots=screenshots.locales[screenshots.defaultLocale];
+  const screenshotKeys=Object.keys(defaultScreenshots?.light||{}).sort();
+  if (!screenshotKeys.length) throw new Error('Screenshot configuration must define a default locale');
+  for (const [locale,localized] of Object.entries(screenshots.locales)) {
+    if (!equal(Object.keys(localized).sort(),themes)) throw new Error(`${locale}: screenshot themes must be light and dark`);
+    for (const theme of themes) {
+      if (!equal(Object.keys(localized[theme]).sort(),screenshotKeys)) throw new Error(`${locale}/${theme}: screenshot keys differ from ${screenshots.defaultLocale}/light`);
+      for (const path of Object.values(localized[theme])) await access(resolve(root,path));
+    }
+  }
+  const defaultWidgetRoots=widgets.locales[widgets.defaultLocale];
+  if (!defaultWidgetRoots?.light) throw new Error('Widget configuration must define a default locale');
+  const widgetFiles=(await readdir(resolve(root,defaultWidgetRoots.light))).filter(file=>file.endsWith('.png')).sort();
+  if (!widgetFiles.length) throw new Error('Widget configuration must include PNG assets');
+  const widgetKeys=widgetFiles.map(file=>file.slice(0,-4));
+  for (const [locale,localized] of Object.entries(widgets.locales)) {
+    if (!equal(Object.keys(localized).sort(),themes)) throw new Error(`${locale}: widget themes must be light and dark`);
+    for (const theme of themes) {
+      const localizedFiles=(await readdir(resolve(root,localized[theme]))).filter(file=>file.endsWith('.png')).sort();
+      if (!equal(localizedFiles,widgetFiles)) throw new Error(`${locale}/${theme}: widget assets differ from ${widgets.defaultLocale}/light`);
+    }
+  }
   for (const [page,html] of Object.entries(htmlByPage)) {
     ids[page]=values(html,/\bid="([^"]+)"/g);
     if (new Set(ids[page]).size!==ids[page].length) throw new Error(`${page}: duplicate IDs`);
     if ([...html.matchAll(/<h1\b/g)].length!==1) throw new Error(`${page}: expected one h1`);
     for (const key of values(html,/data-i18n(?:-aria)?="([^"]+)"/g)) if (!(key in base)) throw new Error(`${page}: unknown translation ${key}`);
+    for (const key of values(html,/data-screenshot="([^"]+)"/g)) if (!screenshotKeys.includes(key)) throw new Error(`${page}: unknown screenshot ${key}`);
+    for (const key of values(html,/data-widget="([^"]+)"/g)) if (!widgetKeys.includes(key)) throw new Error(`${page}: unknown widget ${key}`);
   }
   for (const [page,html] of Object.entries(htmlByPage)) {
     for (const link of values(html,/href="([^"]+)"/g)) {

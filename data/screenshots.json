@@ -1,0 +1,33 @@
+{
+  "defaultLocale": "en",
+  "locales": {
+    "en": {
+      "light": {
+        "calendar": "assets/screenshots/en/calendar.png",
+        "plan": "assets/screenshots/en/plan.png",
+        "statistics": "assets/screenshots/en/statistics.png",
+        "strength": "assets/screenshots/en/strength.png"
+      },
+      "dark": {
+        "calendar": "assets/screenshots/en/dark/calendar.png",
+        "plan": "assets/screenshots/en/dark/plan.png",
+        "statistics": "assets/screenshots/en/dark/statistics.png",
+        "strength": "assets/screenshots/en/dark/strength.png"
+      }
+    },
+    "ru": {
+      "light": {
+        "calendar": "assets/screenshots/ru/calendar.png",
+        "plan": "assets/screenshots/ru/plan.png",
+        "statistics": "assets/screenshots/ru/statistics.png",
+        "strength": "assets/screenshots/ru/strength.png"
+      },
+      "dark": {
+        "calendar": "assets/screenshots/ru/dark/calendar.png",
+        "plan": "assets/screenshots/ru/dark/plan.png",
+        "statistics": "assets/screenshots/ru/dark/statistics.png",
+        "strength": "assets/screenshots/ru/dark/strength.png"
+      }
+    }
+  }
+}

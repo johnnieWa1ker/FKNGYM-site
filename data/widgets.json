@@ -1,0 +1,13 @@
+{
+  "defaultLocale": "en",
+  "locales": {
+    "en": {
+      "light": "assets/widgets/en/light",
+      "dark": "assets/widgets/en/dark"
+    },
+    "ru": {
+      "light": "assets/widgets/ru/light",
+      "dark": "assets/widgets/ru/dark"
+    }
+  }
+}

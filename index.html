@@ -3,7 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
-    <meta name="color-scheme" content="light">
+    <meta name="color-scheme" content="light dark">
+    <script>
+      (() => {
+        try {
+          const preference = localStorage.getItem('fkngym-public-theme') || 'system';
+          const dark = preference === 'dark' || (preference === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.dataset.themePreference = preference;
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        } catch {}
+      })();
+    </script>
     <meta
       name="description"
       content="FKNGYM is a focused workout logging app for tracking workouts, plans, timers, statistics, and progress."
@@ -70,10 +80,10 @@
 
           <div class="hero-art" aria-label="FKNGYM app preview" data-i18n-aria="homePageTitle">
             <div class="hero-device hero-device-main">
-              <div class="screenshot-placeholder" data-i18n="slotCalendar">Calendar screenshot</div>
+              <img class="localized-screenshot" src="assets/screenshots/en/calendar.png" data-screenshot="calendar" width="1380" height="2880" alt="" fetchpriority="high">
             </div>
             <div class="hero-device hero-device-side">
-              <div class="screenshot-placeholder" data-i18n="slotStats">Statistics screenshot</div>
+              <img class="localized-screenshot" src="assets/screenshots/en/statistics.png" data-screenshot="statistics" width="1380" height="2880" alt="" fetchpriority="high">
             </div>
             <img class="hero-mascot" src="assets/mascots/mascot-dumbbells-cutout.png" alt="">
           </div>
@@ -98,6 +108,37 @@
         </article>
       </section>
 
+      <section class="widget-showcase" id="widgets" aria-labelledby="widgets-title">
+        <div class="widget-heading">
+          <p class="eyebrow" data-i18n="navStats">Stats</p>
+          <h2 id="widgets-title" data-i18n="widgetsTitle">Your workout, right on the Home Screen.</h2>
+          <p data-i18n="widgetsBody">A rich set of interactive widgets puts workouts, timers, progress, and quick actions within reach—without opening the app.</p>
+        </div>
+        <div class="widget-wall" aria-hidden="true">
+          <figure class="widget-tile widget-medium"><img src="assets/widgets/en/light/today-medium.png" data-widget="today-medium" width="1092" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-small"><img src="assets/widgets/en/light/volume-week-small.png" data-widget="volume-week-small" width="492" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-medium"><img src="assets/widgets/en/light/timer-running-medium.png" data-widget="timer-running-medium" width="1092" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-large"><img src="assets/widgets/en/light/balance-large.png" data-widget="balance-large" width="1092" height="1146" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-small"><img src="assets/widgets/en/light/rhythm-small.png" data-widget="rhythm-small" width="492" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-medium"><img src="assets/widgets/en/light/volume-chest-medium.png" data-widget="volume-chest-medium" width="1092" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-small"><img src="assets/widgets/en/light/today-small.png" data-widget="today-small" width="492" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-small"><img src="assets/widgets/en/light/balance-small.png" data-widget="balance-small" width="492" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-small"><img src="assets/widgets/en/light/timer-start-small.png" data-widget="timer-start-small" width="492" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-medium"><img src="assets/widgets/en/light/volume-quarter-medium.png" data-widget="volume-quarter-medium" width="1092" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-medium"><img src="assets/widgets/en/light/rhythm-medium.png" data-widget="rhythm-medium" width="1092" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-large"><img src="assets/widgets/en/light/today-large.png" data-widget="today-large" width="1092" height="1146" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-small"><img src="assets/widgets/en/light/volume-back-small.png" data-widget="volume-back-small" width="492" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-medium"><img src="assets/widgets/en/light/balance-medium.png" data-widget="balance-medium" width="1092" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-small"><img src="assets/widgets/en/light/volume-month-small.png" data-widget="volume-month-small" width="492" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-medium"><img src="assets/widgets/en/light/volume-week-medium.png" data-widget="volume-week-medium" width="1092" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-small"><img src="assets/widgets/en/light/volume-chest-small.png" data-widget="volume-chest-small" width="492" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-small"><img src="assets/widgets/en/light/volume-quarter-small.png" data-widget="volume-quarter-small" width="492" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-small"><img src="assets/widgets/en/light/timer-paused-small.png" data-widget="timer-paused-small" width="492" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-medium"><img src="assets/widgets/en/light/volume-back-medium.png" data-widget="volume-back-medium" width="1092" height="510" alt="" loading="lazy"></figure>
+          <figure class="widget-tile widget-medium"><img src="assets/widgets/en/light/volume-month-medium.png" data-widget="volume-month-medium" width="1092" height="510" alt="" loading="lazy"></figure>
+        </div>
+      </section>
+
       <section class="showcase-section" id="features">
         <div class="section-heading">
           <p class="eyebrow" data-i18n="featureEyebrow">Built around the workout</p>
@@ -112,8 +153,8 @@
               <h3 data-i18n="calendarTitle">A workout calendar that stays close.</h3>
               <p data-i18n="calendarBody">Switch between week and month rhythm, keep notes for the day, repeat workouts, and jump back into active exercises.</p>
             </div>
-            <div class="screenshot-frame phone-frame">
-              <div class="screenshot-placeholder" data-i18n="placeholderCalendar">Calendar screenshot</div>
+            <div class="screenshot-frame screenshot-crop-top phone-frame">
+              <img class="localized-screenshot" src="assets/screenshots/en/calendar.png" data-screenshot="calendar" width="1380" height="2880" alt="" loading="lazy">
             </div>
           </article>
 
@@ -123,8 +164,8 @@
               <h3 data-i18n="logTitle">Weights, reps, time, distance, notes.</h3>
               <p data-i18n="logBody">Each exercise keeps the input mode it needs, including timers for active work.</p>
             </div>
-            <div class="screenshot-frame mini-frame bento-inline-frame">
-              <div class="screenshot-placeholder" data-i18n="placeholderLog">Exercise log screenshot</div>
+            <div class="screenshot-frame screenshot-crop-top mini-frame bento-inline-frame">
+              <img class="localized-screenshot" src="assets/screenshots/en/strength.png" data-screenshot="strength" width="1380" height="2880" alt="" loading="lazy">
             </div>
           </article>
 
@@ -150,8 +191,8 @@
             <p data-i18n="statHeatmapBody">See which weeks were consistent and where training dropped off.</p>
           </article>
           <article class="stat-card stat-card-wide">
-            <div class="screenshot-frame chart-frame">
-              <div class="screenshot-placeholder" data-i18n="placeholderStats">Statistics screenshot</div>
+            <div class="screenshot-frame screenshot-crop-top chart-frame">
+              <img class="localized-screenshot" src="assets/screenshots/en/statistics.png" data-screenshot="statistics" width="1380" height="2880" alt="" loading="lazy">
             </div>
           </article>
           <article class="stat-card">
@@ -166,7 +207,7 @@
       <section class="plans-section">
         <div class="plans-visual">
           <div class="screenshot-frame phone-frame">
-            <div class="screenshot-placeholder" data-i18n="placeholderPlans">Plans screenshot</div>
+            <img class="localized-screenshot" src="assets/screenshots/en/plan.png" data-screenshot="plan" width="1380" height="2880" alt="" loading="lazy">
           </div>
         </div>
         <div class="plans-copy">
