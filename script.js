@@ -1,4 +1,4 @@
-import { nativeLanguageNames, storefrontRegions, matchLocale, suggestedStorefront, marketName, formatPrice, formatPeriod, template, priceFor, availableMarkets } from './pricing.js';
+import { nativeLanguageNames, languageFlags, storefrontRegions, matchLocale, suggestedStorefront, marketName, formatPrice, formatPeriod, template, priceFor, availableMarkets } from './pricing.js';
 
 const baseURL = new URL('.', import.meta.url);
 const readJSON = async (path) => {
@@ -82,7 +82,7 @@ function enhancePicker(select) {
   const trigger = document.createElement('button');
   trigger.type = 'button';
   trigger.className = 'picker-trigger';
-  trigger.innerHTML = `<span class="picker-symbol" aria-hidden="true">${isLanguage ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg>' : ''}</span><span class="picker-value"></span><svg class="picker-chevron" aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m4 6 4 4 4-4"/></svg>`;
+  trigger.innerHTML = `<span class="picker-symbol" aria-hidden="true"></span><span class="picker-value"></span><svg class="picker-chevron" aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m4 6 4 4 4-4"/></svg>`;
   const panel = document.createElement('div');
   panel.className = 'picker-panel';
   panel.id = `picker-${pickers.size + 1}`;
@@ -113,8 +113,16 @@ function enhancePicker(select) {
       button.type = 'button';
       button.className = 'picker-option';
       button.setAttribute('aria-pressed',String(option.value === select.value));
-      button.textContent = option.text;
-      if (isLanguage) button.lang = option.value;
+      if (isLanguage) {
+        const flag = document.createElement('span');
+        flag.className = 'language-flag';
+        flag.setAttribute('aria-hidden','true');
+        flag.textContent = languageFlags[option.value] || '';
+        const name = document.createElement('span');
+        name.textContent = languageName(option.value);
+        button.append(flag,name);
+        button.lang = option.value;
+      } else button.textContent = option.text;
       button.dir = 'auto';
       button.addEventListener('click',() => {
         select.value = option.value;
@@ -159,13 +167,17 @@ function enhancePicker(select) {
   document.addEventListener('scroll',() => { if (panel.matches(':popover-open')) position(); },true);
   function sync() {
     const selected = select.selectedOptions[0];
-    trigger.querySelector('.picker-value').textContent = selected?.text || '';
-    trigger.setAttribute('aria-label',`${label.textContent}: ${selected?.text || ''}`);
+    const name = isLanguage ? languageName(select.value) : selected?.text || '';
+    trigger.querySelector('.picker-value').textContent = name;
+    trigger.setAttribute('aria-label',`${label.textContent}: ${name}`);
     trigger.disabled = select.disabled;
     panel.setAttribute('aria-label',label.textContent);
     panel.querySelector('.picker-heading').textContent = label.textContent;
     search.setAttribute('aria-label',label.textContent);
-    if (!isLanguage) {
+    if (isLanguage) {
+      trigger.querySelector('.picker-symbol').classList.add('language-flag');
+      trigger.querySelector('.picker-symbol').textContent = languageFlags[select.value] || '';
+    } else {
       const region = storefrontRegions[select.value];
       trigger.querySelector('.picker-symbol').textContent = region ? [...region].map(char => String.fromCodePoint(127397 + char.charCodeAt(0))).join('') : '◎';
     }
@@ -181,7 +193,7 @@ function languageName(locale) {
 }
 function initializeLanguageSelectors() {
   document.querySelectorAll('[data-language-select]').forEach(select => {
-    select.replaceChildren(...appData.locales.map(locale => new Option(languageName(locale), locale)));
+    select.replaceChildren(...appData.locales.map(locale => new Option(`${languageFlags[locale]} ${languageName(locale)}`, locale)));
     select.addEventListener('change', () => setLanguage(select.value));
     select.disabled = false;
   });
@@ -234,6 +246,12 @@ function updatePrices() {
 function updateLocalLinks() {
   document.querySelectorAll('a[href]').forEach(link => {
     const raw = link.getAttribute('href');
+    if (link.hasAttribute('data-company-link')) {
+      const companyURL = new URL(raw);
+      companyURL.searchParams.set('lang',language);
+      link.href = companyURL.href;
+      return;
+    }
     if (!raw.startsWith('/') || raw.startsWith('//')) return;
     const url = new URL(raw,location.origin);
     url.searchParams.set('lang',language);
@@ -387,3 +405,28 @@ initialize().catch(error => {
   // The generated English HTML, prices, legal text, and links remain available.
   console.error('Site data loading failed',error);
 });
+
+// Alternate stable neutral/accent phases with the same neon transition in reverse.
+const reducedBrandMotion = matchMedia('(prefers-reduced-motion: reduce)');
+let brandTimer;
+function scheduleBrandFlicker() {
+ clearTimeout(brandTimer);
+ document.documentElement.classList.remove('brand-flickering');
+ if (reducedBrandMotion.matches) {
+  document.documentElement.classList.remove('brand-lit');
+  return;
+ }
+ if (document.hidden) return;
+ brandTimer = setTimeout(() => {
+  document.documentElement.classList.add('brand-flickering');
+  brandTimer = setTimeout(() => {
+   document.documentElement.classList.toggle('brand-lit');
+   scheduleBrandFlicker();
+  }, 2100);
+ }, 6000 + Math.random() * 12000);
+}
+reducedBrandMotion.addEventListener('change', scheduleBrandFlicker);
+document.addEventListener('visibilitychange', scheduleBrandFlicker);
+window.addEventListener('pagehide', () => clearTimeout(brandTimer));
+window.addEventListener('pageshow', scheduleBrandFlicker);
+scheduleBrandFlicker();

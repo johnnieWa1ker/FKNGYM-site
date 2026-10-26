@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { siteRoot } from './sync-app-data.mjs';
-import { nativeLanguageNames,formatPrice,formatPeriod,template,marketName,priceFor,availableMarkets } from '../pricing.js';
+import { nativeLanguageNames,languageFlags,formatPrice,formatPeriod,template,marketName,priceFor,availableMarkets } from '../pricing.js';
 
 export const pages = ['index.html','privacy/index.html','terms/index.html','support/index.html'];
 const escape = text => text.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
@@ -39,7 +39,7 @@ export async function renderHTML(appData,{root=siteRoot,check=false}={}) {
     if (check) throw new Error('Localized price formats are stale. Run npm run sync.');
     await writeFile(formatsPath,formatted);
   }
-  const options = appData.locales.map(locale => `<option value="${locale}"${locale==='en'?' selected':''}>${escape(nativeLanguageNames[locale] || new Intl.DisplayNames([locale],{type:'language'}).of(locale))}</option>`).join('');
+  const options = appData.locales.map(locale => `<option value="${locale}"${locale==='en'?' selected':''}>${languageFlags[locale]} ${escape(nativeLanguageNames[locale] || new Intl.DisplayNames([locale],{type:'language'}).of(locale))}</option>`).join('');
   for (const path of pages) {
     const fullPath=resolve(root,path), before=await readFile(fullPath,'utf8');
     let html=before.replace(/(<([a-z0-9]+)\b[^>]*\bdata-i18n="([^"]+)"[^>]*>)[\s\S]*?<\/\2>/g,

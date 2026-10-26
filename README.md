@@ -205,3 +205,14 @@ Pricing API references: [configured subscription prices](https://developer.apple
 [plan availability](https://developer.apple.com/documentation/appstoreconnectapi/get-v1-subscriptions-_id_-planavailabilities),
 and [Apple price equalization](https://developer.apple.com/documentation/appstoreconnectapi/querying-adjusted-subscription-price-equalizations).
 The site exports configured prices rather than computing exchange-rate estimates.
+
+## Shared navigation layout
+
+FKNGROUP and FKNGYM use an 80px desktop header and a second navigation row at
+1100px and below. Header and footer height grows with wrapped translations.
+Keep the shared chrome sizing rules in both repositories aligned when editing.
+
+The homepage and all document pages use the same sticky header. Language flags
+appear in both the searchable picker and native select fallback. The G in the
+wordmark periodically transitions to the brand accent; reduced motion disables
+this effect. Footer links to FKNGROUP preserve the selected language.
