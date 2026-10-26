@@ -37,17 +37,21 @@ export async function validateSite(root=siteRoot) {
   }
   const defaultWidgetRoots=widgets.locales[widgets.defaultLocale];
   if (!defaultWidgetRoots?.light) throw new Error('Widget configuration must define a default locale');
-  const widgetFiles=(await readdir(resolve(root,defaultWidgetRoots.light))).filter(file=>file.endsWith('.png')).sort();
-  if (!widgetFiles.length) throw new Error('Widget configuration must include PNG assets');
-  const widgetKeys=widgetFiles.map(file=>file.slice(0,-4));
+  const widgetFiles=(await readdir(resolve(root,defaultWidgetRoots.light))).filter(file=>file.endsWith('.webp')).sort();
+  if (!widgetFiles.length) throw new Error('Widget configuration must include WebP assets');
+  const widgetKeys=widgetFiles.map(file=>file.slice(0,-5));
   for (const [locale,localized] of Object.entries(widgets.locales)) {
     if (!equal(Object.keys(localized).sort(),themes)) throw new Error(`${locale}: widget themes must be light and dark`);
     for (const theme of themes) {
-      const localizedFiles=(await readdir(resolve(root,localized[theme]))).filter(file=>file.endsWith('.png')).sort();
+      const localizedFiles=(await readdir(resolve(root,localized[theme]))).filter(file=>file.endsWith('.webp')).sort();
       if (!equal(localizedFiles,widgetFiles)) throw new Error(`${locale}/${theme}: widget assets differ from ${widgets.defaultLocale}/light`);
     }
   }
   for (const [page,html] of Object.entries(htmlByPage)) {
+    for (const source of values(html, /<img\b[^>]*\bsrc="([^"]+)"/g)) {
+      const url = new URL(source, `https://fkngym.com/${page}`);
+      if (url.origin === 'https://fkngym.com') await access(resolve(root, url.pathname.slice(1)));
+    }
     ids[page]=values(html,/\bid="([^"]+)"/g);
     if (new Set(ids[page]).size!==ids[page].length) throw new Error(`${page}: duplicate IDs`);
     if ([...html.matchAll(/<h1\b/g)].length!==1) throw new Error(`${page}: expected one h1`);

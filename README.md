@@ -216,3 +216,47 @@ The homepage and all document pages use the same sticky header. Language flags
 appear in both the searchable picker and native select fallback. The G in the
 wordmark periodically transitions to the brand accent; reduced motion disables
 this effect. Footer links to FKNGROUP preserve the selected language.
+
+## Optimized website images
+
+Screenshots and widgets use lossless WebP at their original dimensions, preserving
+text, transparency, and embedded ICC profiles. This includes both English/Russian
+locales and light/dark themes. Decorative mascots use WebP quality 90 and widths
+suited to their maximum display size at roughly 3× density: 192px for the header
+mark, 640px for the hero, 576px for the statistics mascot, and 900px for the active
+workout mascot. Below-the-fold decorative mascots load lazily. PNG favicons, the
+Apple touch icon, and the social preview remain in their existing compatible formats.
+
+The 26 October 2026 conversion reduced 104 used images from 20,115,355 to
+6,614,580 bytes (67.1%). The header mascot alone fell from 1,522,448 to 9,068 bytes.
+All 100 screenshot/widget conversions were checked for identical decoded RGBA
+pixels. These totals cover all locale/theme variants, not one page visit or a
+measured network loading time.
+
+Original PNGs are retained locally under ignored `docs/image-originals/assets/`
+and are excluded from `dist/`. They remain recoverable from Git history as well.
+The one-off optimizer `scripts/optimize-images.mjs` is also local and ignored;
+it is not part of a fresh checkout or the shared npm commands. On a machine with
+the helper and originals, install the `cwebp` CLI (for example, Homebrew's `webp`
+package) and run:
+
+```sh
+node scripts/optimize-images.mjs
+npm run build -- --snapshot
+```
+
+Normal builds and GitHub Actions use the checked-in WebP files and do not require
+the encoder or the local originals. Update the original in `docs/image-originals/`
+before re-encoding a revised image; the helper rejects conflicting PNG copies.
+
+## Local files and repository contents
+
+Keep reports in `reports/` or root `*_report.md` files, working material in `docs/`,
+and one-off helpers in `scripts/local/`. These paths, the image optimizer, and
+local `AGENTS.md` rules are ignored and remain on the developer's machine.
+Shared development, build, validation, synchronization, and Apple price export
+scripts remain versioned because they support the project's documented commands,
+tests, or GitHub Actions workflows.
+
+For a previously tracked local file, use `git rm --cached <path>` to stop tracking
+it while preserving the working copy. This does not erase past Git history.

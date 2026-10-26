@@ -278,7 +278,7 @@ function updateWidgets() {
   const localizedLocale = widgets.locales[language] || fallbackLocale;
   const root = localizedLocale[theme] || localizedLocale.light || fallbackRoot;
   document.querySelectorAll('[data-widget]').forEach(image => {
-    image.src = new URL(`${root}/${image.dataset.widget}.png`,baseURL).href;
+    image.src = new URL(`${root}/${image.dataset.widget}.webp`,baseURL).href;
   });
 }
 function initializeWidgetWall() {

@@ -1,6 +1,11 @@
 dist/
 node_modules/
 /docs/
+/reports/
+/*_report.md
+/AGENTS.md
+/scripts/local/
+/scripts/optimize-images.mjs
 .DS_Store
 
 *.p8

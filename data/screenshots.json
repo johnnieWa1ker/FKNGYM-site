@@ -3,30 +3,30 @@
   "locales": {
     "en": {
       "light": {
-        "calendar": "assets/screenshots/en/calendar.png",
-        "plan": "assets/screenshots/en/plan.png",
-        "statistics": "assets/screenshots/en/statistics.png",
-        "strength": "assets/screenshots/en/strength.png"
+        "calendar": "assets/screenshots/en/calendar.webp",
+        "plan": "assets/screenshots/en/plan.webp",
+        "statistics": "assets/screenshots/en/statistics.webp",
+        "strength": "assets/screenshots/en/strength.webp"
       },
       "dark": {
-        "calendar": "assets/screenshots/en/dark/calendar.png",
-        "plan": "assets/screenshots/en/dark/plan.png",
-        "statistics": "assets/screenshots/en/dark/statistics.png",
-        "strength": "assets/screenshots/en/dark/strength.png"
+        "calendar": "assets/screenshots/en/dark/calendar.webp",
+        "plan": "assets/screenshots/en/dark/plan.webp",
+        "statistics": "assets/screenshots/en/dark/statistics.webp",
+        "strength": "assets/screenshots/en/dark/strength.webp"
       }
     },
     "ru": {
       "light": {
-        "calendar": "assets/screenshots/ru/calendar.png",
-        "plan": "assets/screenshots/ru/plan.png",
-        "statistics": "assets/screenshots/ru/statistics.png",
-        "strength": "assets/screenshots/ru/strength.png"
+        "calendar": "assets/screenshots/ru/calendar.webp",
+        "plan": "assets/screenshots/ru/plan.webp",
+        "statistics": "assets/screenshots/ru/statistics.webp",
+        "strength": "assets/screenshots/ru/strength.webp"
       },
       "dark": {
-        "calendar": "assets/screenshots/ru/dark/calendar.png",
-        "plan": "assets/screenshots/ru/dark/plan.png",
-        "statistics": "assets/screenshots/ru/dark/statistics.png",
-        "strength": "assets/screenshots/ru/dark/strength.png"
+        "calendar": "assets/screenshots/ru/dark/calendar.webp",
+        "plan": "assets/screenshots/ru/dark/plan.webp",
+        "statistics": "assets/screenshots/ru/dark/statistics.webp",
+        "strength": "assets/screenshots/ru/dark/strength.webp"
       }
     }
   }

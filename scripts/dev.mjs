@@ -13,7 +13,7 @@ for (const file of sourceFiles) watchFile(file,{interval:750},()=>{
   syncing=syncing.then(sync).then(()=>console.log('Updated data from FKNGYM.')).catch(error=>console.error(`Sync failed; keeping last valid data: ${error.message}`));
 });
 const watcher=watch(siteRoot,{recursive:true},(_,filename)=>{ if (filename && !/^(\.git|dist|node_modules)/.test(filename)) revision++; });
-const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.css':'text/css; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml'};
+const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.css':'text/css; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml'};
 const reloadScript=`let current; setInterval(async()=>{try{const next=await(await fetch('/__revision')).text();if(current!==undefined&&current!==next)location.reload();current=next;}catch{}},1000);`;
 const server=createServer(async(req,res)=>{
   try {
